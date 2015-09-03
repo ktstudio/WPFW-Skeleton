@@ -9,19 +9,19 @@
         <link rel="pingback" href="<?php bloginfo("pingback_url"); ?>" />
         <?php wp_head(); ?>
         <!--[if lt IE 9]>
-            <script src="<?php echo KT_XYZ_JS_URL; ?>/compatibility.js"></script>  
+            <script src="<?php echo KT_ZZZ_JS_URL; ?>/compatibility.js"></script>  
         <![endif]-->
     </head>
     <body>
 
         <header id="header" class="container">
-            <a href="<?php echo get_home_url(); ?>" title="<?php _e("WP Framework", XYZ_DOMAIN) ?>">
-                <?php _e("WP Framework", XYZ_DOMAIN) ?>
+            <a href="<?php echo get_home_url(); ?>" title="<?php _e("WP Framework", ZZZ_DOMAIN) ?>">
+                <?php _e("WP Framework", ZZZ_DOMAIN) ?>
             </a>
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNav"><span><?php _e("Menu", XYZ_DOMAIN) ?></span></button>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNav"><span><?php _e("Menu", ZZZ_DOMAIN) ?></span></button>
             <nav>
                 <ul id="mainNav" class="navbar-collapse collapse clearfix">
-                    <?php KT::theWpNavMenu(KT_XYZ_NAVIGATION_MAIN_MENU, 1); ?>
+                    <?php KT::theWpNavMenu(KT_ZZZ_NAVIGATION_MAIN_MENU, 1); ?>
                 </ul>
             </nav>
         </header>

@@ -6,9 +6,9 @@
  * @author Martin Hlaváč
  * @link http://www.ktstudio.cz
  */
-class KT_XYZ_Sidebar_Presenter extends KT_Presenter_Base {
+class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
 
-    private $currentSidebarName = KT_XYZ_SIDEBAR_DEFAULT;
+    private $currentSidebarName = KT_ZZZ_SIDEBAR_DEFAULT;
 
     public function __construct() {
         parent::__construct();
@@ -55,7 +55,7 @@ class KT_XYZ_Sidebar_Presenter extends KT_Presenter_Base {
      * @return \KT_VLS_Sidebar_Presenter
      */
     private function initCurrentSidebar() {
-        return $this->setCurrentSidebarName(KT_XYZ_SIDEBAR_DEFAULT);
+        return $this->setCurrentSidebarName(KT_ZZZ_SIDEBAR_DEFAULT);
     }
 
 }

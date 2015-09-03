@@ -5,8 +5,8 @@
         <?php get_sidebar(); ?>
         <main id="content" class="col-md-9">
             <header>
-                <h1><?php _e("Výsledky vyhledávání", XYZ_DOMAIN); ?></h1>
-                <p><?php _e("pro:", XYZ_DOMAIN); ?> <?php echo esc_attr(trim(get_search_query())); ?></p>
+                <h1><?php _e("Výsledky vyhledávání", ZZZ_DOMAIN); ?></h1>
+                <p><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo esc_attr(trim(get_search_query())); ?></p>
             </header>
             <?php if (have_posts()) { ?>
                 <section class="productList row">
@@ -23,7 +23,7 @@
             } else {
                 ?> 
                 <section class="productList row">
-                    <p><?php _e("K dispozici nejsou žádné příspěvky...", XYZ_DOMAIN); ?></p>
+                    <p><?php _e("K dispozici nejsou žádné příspěvky...", ZZZ_DOMAIN); ?></p>
                 </section>
                 <?php
             }

@@ -28,31 +28,31 @@ $config->metaboxRemover()
 
 // --- images --------------------------
 
-//$config->addImageSize(KT_XYZ_IMAGE_SIZE_CUSTOM_THUMB, 123, 456, true);
+//$config->addImageSize(KT_ZZZ_IMAGE_SIZE_CUSTOM_THUMB, 123, 456, true);
 
 $config->setImagesLazyLoading(true);
 
 // --- styly ---------------------------
 
-$config->assetsConfigurator()->addStyle("kt-xyz-style", get_template_directory_uri() . "/style.css")->setEnqueue();
+$config->assetsConfigurator()->addStyle("kt-zzz-style", get_template_directory_uri() . "/style.css")->setEnqueue();
 
 // --- scripty ---------------------------
 
 //$config->assetsConfigurator()
-//        ->addScript("kt-xyz-functions-script", KT_XYZ_JS_URL . "/kt-xyz-functions.min.js")
+//        ->addScript("kt-zzz-functions-script", KT_ZZZ_JS_URL . "/kt-zzz-functions.min.js")
 //        ->addLocalizationData("myAjax", array("ajaxurl" => admin_url("admin-ajax.php")))
 //        ->setInFooter(true)
 //        ->setEnqueue();
 
 // --- menu ---------------------------
 
-$config->addWpMenu(KT_XYZ_NAVIGATION_MAIN_MENU, __("Menu v hlavičce", XYZ_DOMAIN));
+$config->addWpMenu(KT_ZZZ_NAVIGATION_MAIN_MENU, __("Menu v hlavičce", ZZZ_DOMAIN));
 
 // --- sidebars ---------------------------
 
-$config->addSidebar(KT_XYZ_SIDEBAR_DEFAULT)
-        ->setName(__("Default", XYZ_DOMAIN))
-        ->setDescription(__("Výchozí", XYZ_DOMAIN))
+$config->addSidebar(KT_ZZZ_SIDEBAR_DEFAULT)
+        ->setName(__("Default", ZZZ_DOMAIN))
+        ->setDescription(__("Výchozí", ZZZ_DOMAIN))
         ->setBeforeWidget('<div id="%1$s" class="widget %2$s">')
         ->setAfterWidget("</div>");
 

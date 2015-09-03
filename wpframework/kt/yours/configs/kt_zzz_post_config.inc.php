@@ -1,8 +1,8 @@
 <?php
 
-class KT_XYZ_Post_Config {
+class KT_ZZZ_Post_Config {
 
-    const FORM_PREFIX = "kt-xyz-post";
+    const FORM_PREFIX = "kt-zzz-post";
 
     // --- fieldsety ---------------------------
 
@@ -14,10 +14,10 @@ class KT_XYZ_Post_Config {
 
     // --- parametry ---------------------------
 
-    const PARAMS_FIELDSET = "kt-xyz-post-params";
+    const PARAMS_FIELDSET = "kt-zzz-post-params";
 
     public static function getParamsFieldset() {
-        $fieldset = new KT_Form_Fieldset(self::PARAMS_FIELDSET, __("Parametry", XYZ_DOMAIN));
+        $fieldset = new KT_Form_Fieldset(self::PARAMS_FIELDSET, __("Parametry", ZZZ_DOMAIN));
         $fieldset->setPostPrefix(self::PARAMS_FIELDSET);
 
         // TODO

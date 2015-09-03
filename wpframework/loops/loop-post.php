@@ -1,5 +1,5 @@
 <?php
-$postPresenter = new KT_XYZ_Post_Presenter($post);
+$postPresenter = new KT_ZZZ_Post_Presenter($post);
 $postModel = $postPresenter->getModel();
 ?>
 

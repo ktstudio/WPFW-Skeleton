@@ -1,6 +1,6 @@
 <?php
 
-class KT_XYZ_Index_Presenter extends KT_Presenter_Base {
+class KT_ZZZ_Index_Presenter extends KT_Presenter_Base {
 
     private $newsQuery;
 
@@ -36,7 +36,7 @@ class KT_XYZ_Index_Presenter extends KT_Presenter_Base {
             "posts_per_page" => 4,
             "orderby" => "date",
             "order" => "DESC",
-            "cat" => KT_XYZ::getThemeModel()->getCategoryNewsId(),
+            "cat" => KT_ZZZ::getThemeModel()->getCategoryNewsId(),
         );
         return $this->newsQuery = new WP_Query($args);
     }
