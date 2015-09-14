@@ -38,11 +38,16 @@ $config->assetsConfigurator()->addStyle("kt-zzz-style", get_template_directory_u
 
 // --- scripty ---------------------------
 
-//$config->assetsConfigurator()
-//        ->addScript("kt-zzz-functions-script", KT_ZZZ_JS_URL . "/kt-zzz-functions.min.js")
-//        ->addLocalizationData("myAjax", array("ajaxurl" => admin_url("admin-ajax.php")))
-//        ->setInFooter(true)
-//        ->setEnqueue();
+$config->assetsConfigurator()
+        ->addScript(KT_JQUERY_UNVEIL_SCRIPT)
+        ->setInFooter(true)
+        ->setEnqueue();
+
+$config->assetsConfigurator()
+        ->addScript("kt-zzz-functions-script", KT_ZZZ_JS_URL . "/kt-zzz-functions.min.js")
+        ->addLocalizationData("myAjax", array("ajaxurl" => admin_url("admin-ajax.php")))
+        ->setInFooter(true)
+        ->setEnqueue();
 
 // --- menu ---------------------------
 
