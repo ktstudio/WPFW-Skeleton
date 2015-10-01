@@ -70,6 +70,10 @@ $config->metaboxRemover()->clearWordpressDashboard(true);
 $config->widgetRemover()->removeAllSystemWidgets(true)
         ->removeWidget("bcn_widget");
 
+// --- head ---------------------------
+
+$config->headRemover()->removeRecommendSystemHeads();
+
 // --- incializace ---------------------------
 
 $config->initialize();

@@ -77,12 +77,8 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_FACEBOOK);
     }
 
-    public function isSocialFacebook() {
-        return KT::issetAndNotEmpty($this->getSocialFacebook());
-    }
-
     public function theSocialFacebook() {
-        return $this->theSocialListItem($this->getSocialFacebook(), __("Facebook", ZZZ_DOMAIN), "facebook");
+        $this->theSocialListItem($this->getSocialFacebook(), __("Facebook", ZZZ_DOMAIN), "facebook");
     }
 
     public function getSocialTwitter() {
@@ -90,7 +86,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
     }
 
     public function theSocialTwitter() {
-        return $this->theSocialListItem($this->getSocialTwitter(), __("Twitter", ZZZ_DOMAIN), "twitter");
+        $this->theSocialListItem($this->getSocialTwitter(), __("Twitter", ZZZ_DOMAIN), "twitter");
     }
 
     public function getSocialGooglePlus() {
@@ -98,7 +94,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
     }
 
     public function theSocialGooglePlus() {
-        return $this->theSocialListItem($this->getSocialGooglePlus(), __("Google+", ZZZ_DOMAIN), "google");
+        $this->theSocialListItem($this->getSocialGooglePlus(), __("Google+", ZZZ_DOMAIN), "google");
     }
 
     public function getSocialYouTube() {
@@ -106,7 +102,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
     }
 
     public function theSocialYouTube() {
-        return $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", ZZZ_DOMAIN), "ytb");
+        $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", ZZZ_DOMAIN), "ytb");
     }
 
     // --- HELPERS ---------------------------
