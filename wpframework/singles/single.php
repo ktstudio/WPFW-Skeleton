@@ -7,19 +7,16 @@ get_header();
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-md-8">
-            <main id="postDetail">
+            <main>
                 <header>
                     <h1><?php echo $postModel->getTitle(); ?></h1>
                 </header>
-
-                <div class="entryContent">
-                    <?php
-                    if ($postModel->hasExcrept()) {
-                        echo $postModel->getExcerpt();
-                    }
-                    echo $postModel->getContent();
-                    ?>
-                </div>
+                <?php
+                if ($postModel->hasExcrept()) {
+                    echo $postModel->getExcerpt();
+                }
+                echo $postModel->getContent();
+                ?>
             </main>
         </div>
         <div class="col-lg-4 col-md-4">

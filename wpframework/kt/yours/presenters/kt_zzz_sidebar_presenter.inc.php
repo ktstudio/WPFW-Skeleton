@@ -15,7 +15,7 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
         $this->initCurrentSidebar();
     }
 
-    // --- getry & setry ---------------------------
+    // --- getry & setry ------------------------------
 
     /**
      * @return string
@@ -36,7 +36,7 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
         return $this;
     }
 
-    // --- veřejné metody ---------------------------
+    // --- veřejné metody ------------------------------
 
     /**
      * Vykreslení sidebaru
@@ -47,7 +47,7 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
         }
     }
 
-    // --- neveřejné metody ---------------------------
+    // --- neveřejné metody ------------------------------
 
     /**
      * Provede inicializaci aktuálního sidebaru 

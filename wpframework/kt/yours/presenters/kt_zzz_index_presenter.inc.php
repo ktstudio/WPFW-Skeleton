@@ -8,7 +8,7 @@ class KT_ZZZ_Index_Presenter extends KT_Presenter_Base {
         parent::__construct();
     }
 
-    // --- getry & setry ------------------------
+    // --- getry & setry ------------------------------
 
     /**
      * @return \WP_Query
@@ -20,13 +20,13 @@ class KT_ZZZ_Index_Presenter extends KT_Presenter_Base {
         return $this->initNewsQuery();
     }
 
-    // --- veřejné metody ------------------------
+    // --- veřejné metody ------------------------------
 
     public function theNewsQuery() {
         self::theQueryLoops($this->getNewsQuery(), KT_WP_POST_KEY);
     }
 
-    // --- neveřejné metody ------------------------
+    // --- neveřejné metody ------------------------------
 
     private function initNewsQuery() {
         $args = array(
@@ -35,7 +35,7 @@ class KT_ZZZ_Index_Presenter extends KT_Presenter_Base {
             "post_parent" => 0,
             "posts_per_page" => 4,
             "orderby" => "date",
-            "order" => "DESC",
+            "order" => KT_Repository::ORDER_DESC,
             "cat" => KT_ZZZ::getThemeModel()->getCategoryNewsId(),
         );
         return $this->newsQuery = new WP_Query($args);

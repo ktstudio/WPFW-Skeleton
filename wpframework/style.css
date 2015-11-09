@@ -1,7 +1,38 @@
 /*
-Theme Name: ZZZ
-Author: WP Framework
-Author URI: http://www.wpframework.cz/
-Description: WP Framework skeleton
+Theme Name: WP Framework (Skeleton)
+Author: KTStudio.cz
+Author URI: http://www.ktstudio.cz/
+Description: Na míru pro WPFramework.cz
 Version: 1.0
 */
+
+#ktCookieStatement {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding: 5px;
+    width: 100%;
+    font-size: 0.75em;
+    text-align: center;
+    color: #efefef;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    padding: 5px;
+}
+
+#ktCookieStatement a {
+    color: #efefef;
+}
+
+#ktCookieStatementText, #ktCookieStatementConfirm, #ktCookieStatementMoreInfo {
+    margin: 0 5px;
+}
+
+#ktCookieStatementConfirm, #ktCookieStatementMoreInfo {
+    cursor: pointer;
+    padding: 3px 5px;
+    background: rgba(0, 0, 0, 0.75);
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}

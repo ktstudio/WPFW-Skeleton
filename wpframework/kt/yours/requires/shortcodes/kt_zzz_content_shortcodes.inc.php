@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Jednoduché řešení postaru, pro složitější scénáře viz @see KT_Shortcode
+ */
+
 add_shortcode("zzz_row_start", "kt_zzz_row_start_shortcode_callback");
 
 function kt_zzz_row_start_shortcode_callback($atts) {

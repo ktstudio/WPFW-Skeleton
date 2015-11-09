@@ -3,13 +3,13 @@
 <div class="container">
     <div class="row">
         <?php get_sidebar(); ?>
-        <main id="content" class="col-md-9">
+        <main id="search" class="col-md-9">
             <header>
                 <h1><?php _e("Výsledky vyhledávání", ZZZ_DOMAIN); ?></h1>
-                <p><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo esc_attr(trim(get_search_query())); ?></p>
+                <p><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo KT::stringEscape(get_search_query()); ?></p>
             </header>
             <?php if (have_posts()) { ?>
-                <section class="productList row">
+                <section class="row">
                     <?php
                     while (have_posts()) : the_post();
                         get_template_part("loops/loop", KT_WP_POST_KEY);
@@ -22,7 +22,7 @@
                 <?php
             } else {
                 ?> 
-                <section class="productList row">
+                <section class="row">
                     <p><?php _e("K dispozici nejsou žádné příspěvky...", ZZZ_DOMAIN); ?></p>
                 </section>
                 <?php

@@ -6,8 +6,6 @@ class KT_ZZZ_Post_Model extends KT_WP_Post_Base_Model {
         parent::__construct($post, KT_ZZZ_Post_Config::FORM_PREFIX);
     }
 
-    // --- getry & setry ---------------------
-    
+    // --- getry & setry ------------------------
     // TODO
-    
 }

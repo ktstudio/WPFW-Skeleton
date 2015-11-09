@@ -9,7 +9,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         parent::__construct(KT_ZZZ_Theme_Config::FORM_PREFIX);
     }
 
-    // --- KATEGORIE ---------------------------
+    // --- KATEGORIE ------------------------
 
     public function getCategoryNewsId() {
         return $this->getOption(KT_ZZZ_Theme_Config::CATEGORY_NEWS_ID);
@@ -39,7 +39,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return null;
     }
 
-    // --- ADRESA ---------------------------
+    // --- ADRESA ------------------------
 
     public function getAddressTitle() {
         return $this->getOption(KT_ZZZ_Theme_Config::ADDRESS_TITLE);
@@ -57,7 +57,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->getOption(KT_ZZZ_Theme_Config::ADDRESS_ZIP);
     }
 
-    // --- KONTAKTY ---------------------------
+    // --- KONTAKTY ------------------------
 
     public function getContactPhone() {
         return $this->getOption(KT_ZZZ_Theme_Config::CONTACT_PHONE);
@@ -71,7 +71,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->getOption(KT_ZZZ_Theme_Config::CONTACT_EMAIL);
     }
 
-    // --- SOCIÁLNÍ SÍTĚ ---------------------------
+    // --- SOCIÁLNÍ SÍTĚ ------------------------
 
     public function getSocialFacebook() {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_FACEBOOK);
@@ -105,7 +105,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", ZZZ_DOMAIN), "ytb");
     }
 
-    // --- HELPERS ---------------------------
+    // --- HELPERS ------------------------
 
     public function theSocialListItem($url, $title, $class) {
         if (KT::issetAndNotEmpty($url) && KT::issetAndNotEmpty($title) && KT::issetAndNotEmpty($class)) {

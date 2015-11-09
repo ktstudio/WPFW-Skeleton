@@ -1,17 +1,31 @@
 <?php
 
-class KT_ZZZ_Theme_Config {
+class KT_ZZZ_Theme_Config implements KT_Configable {
 
     const FORM_PREFIX = "kt-zzz-theme";
 
     // --- fieldsety ---------------------------
 
-    public static function getAllGenericFieldset() {
+    public static function getAllGenericFieldsets() {
         return array(
             self::CATEGORY_FIELDSET => self::getCategoryFieldset(),
             self::ADDRESS_FIELDSET => self::getAddressFieldset(),
             self::CONTACT_FIELDSET => self::getContactFieldset(),
             self::SOCIAL_FIELDSET => self::getSocialFieldset(),
+        );
+    }
+
+    public static function getAllNormalFieldsets() {
+        return array(
+            self::ADDRESS_FIELDSET => self::getAddressFieldset(),
+            self::CONTACT_FIELDSET => self::getContactFieldset(),
+            self::SOCIAL_FIELDSET => self::getSocialFieldset(),
+        );
+    }
+
+    public static function getAllSideFieldsets() {
+        return array(
+            self::CATEGORY_FIELDSET => self::getCategoryFieldset(),
         );
     }
 
