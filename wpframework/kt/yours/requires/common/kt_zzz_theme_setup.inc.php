@@ -44,7 +44,8 @@ $config->assetsConfigurator()->addStyle("kt-zzz-magnific-style", KT_MAGNIFIC_POP
  * pak předchozí registrace nejsou třeba a stačí pouze následující:
  */
 $config->assetsConfigurator()->addStyle("kt-zzz-style", get_template_directory_uri() . "/style.css")
-        ->setDeps(array(KT_MAGNIFIC_POPUP_STYLE, "kt-zzz-bootstrap-style"))->setEnqueue();
+        ->setDeps(array(KT_MAGNIFIC_POPUP_STYLE)) //, "kt-zzz-bootstrap-style"))
+        ->setEnqueue();
 
 $config->assetsConfigurator()->addStyle("kt-zzz-font-open-sans", "http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800&amp;subset=latin,latin-ext")->setEnqueue();
 
@@ -68,7 +69,7 @@ $config->assetsConfigurator()
  */
 $config->assetsConfigurator()
         ->addScript("kt-zzz-functions-script", KT_ZZZ_JS_URL . "/kt-zzz-functions.min.js")
-        ->setDeps(array(KT_JQUERY_UNVEIL_SCRIPT, KT_MAGNIFIC_POPUP_SCRIPT, "kt-zzz-bootstrap-script"))
+        ->setDeps(array(KT_JQUERY_UNVEIL_SCRIPT, KT_MAGNIFIC_POPUP_SCRIPT)) //, "kt-zzz-bootstrap-script"))
         ->addLocalizationData("myAjax", array("ajaxurl" => admin_url("admin-ajax.php")))
         ->setInFooter(true)
         ->setEnqueue();
