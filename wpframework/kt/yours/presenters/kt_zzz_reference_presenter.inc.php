@@ -1,6 +1,6 @@
 <?php
 
-class KT_ZZZ_Reference_Presenter extends KT_ZZZ_Post_Presenter {
+class KT_ZZZ_Reference_Presenter extends KT_WP_Post_Base_Presenter {
 
     public function __construct(WP_Post $post) {
         parent::__construct(new KT_ZZZ_Reference_Model($post));
@@ -29,7 +29,7 @@ class KT_ZZZ_Reference_Presenter extends KT_ZZZ_Post_Presenter {
     }
 
     public function renderParamTypes() {
-        $selectedTypesValue = $this->getParamsTypes();
+        $selectedTypesValue = $this->getModel()->getParamTypes();
         if (KT::issetAndNotEmpty($selectedTypesValue) && KT::arrayIsSerialized($selectedTypesValue)) {
             $selectedTypes = unserialize($selectedTypesValue);
             $results = array();

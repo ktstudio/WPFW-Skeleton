@@ -5,9 +5,6 @@
 add_action("init", "kt_zzz_register_reference_post_type");
 
 function kt_zzz_register_reference_post_type() {
-
-
-
     $labels = array(
         "name" => __("Reference", ZZZ_DOMAIN),
         "singular_name" => __("Reference", ZZZ_DOMAIN),
@@ -22,7 +19,6 @@ function kt_zzz_register_reference_post_type() {
         "not_found_in_trash" => __("Žádné reference v koši", ZZZ_DOMAIN),
         "menu_name" => __("Reference", ZZZ_DOMAIN),
     );
-
     $args = array(
         "labels" => $labels,
         "public" => true,
@@ -44,14 +40,13 @@ function kt_zzz_register_reference_post_type() {
             KT_WP_POST_TYPE_SUPPORT_PAGE_ATTRIBUTES_KEY,
         ),
     );
-
     register_post_type(KT_ZZZ_REFERENCE_KEY, $args);
 }
 
 // --- admin sloupce ---------------------------
 
 if (is_admin()) { // vlastní sloupce v administraci
-    $giftAdminColumns = new KT_Admin_Columns(KT_ZZZ_PRODUCT_KEY);
+    $giftAdminColumns = new KT_Admin_Columns(KT_ZZZ_REFERENCE_KEY);
     $giftAdminColumns->addColumn("post_thumbnail", array(
         KT_Admin_Columns::LABEL_PARAM_KEY => __("Foto", ZZZ_DOMAIN),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::THUMBNAIL_TYPE_KEY,

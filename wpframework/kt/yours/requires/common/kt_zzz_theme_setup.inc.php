@@ -28,13 +28,25 @@ $config->metaboxRemover()
 
 // --- images ------------------------------
 
-$config->addImageSize(KT_ZZZ_IMAGE_SIZE_REFERENCE_GALLERY, 768, 432, true);
+$config->addImageSize(KT_ZZZ_IMAGE_SIZE_SLIDER, 1200, 250, true);
+$config->addImageSize(KT_ZZZ_IMAGE_SIZE_REFERENCE_GALLERY, 768, 480, true);
 
 $config->setImagesLazyLoading(true);
 
 // --- styly ---------------------------
 
-$config->assetsConfigurator()->addStyle("kt-zzz-style", get_template_directory_uri() . "/style.css")->setEnqueue();
+$config->assetsConfigurator()->addStyle("kt-zzz-magnific-style", KT_MAGNIFIC_POPUP_STYLE)->setEnqueue();
+//$config->assetsConfigurator()->addStyle("kt-zzz-bootstrap-style", KT_ZZZ_CSS_URL . "/bootstrap.min.css")->setEnqueue();
+//$config->assetsConfigurator()->addStyle("kt-zzz-bootstrap-theme-style", KT_ZZZ_CSS_URL . "/bootstrap-theme.min.css")
+//        ->setDeps(array("kt-zzz-bootstrap-style"))->setEnqueue();
+/*
+ * Bylo by dobré používat pouze jeden styl, spojený a minifikovaný do jednoho souboru, 
+ * pak předchozí registrace nejsou třeba a stačí pouze následující:
+ */
+$config->assetsConfigurator()->addStyle("kt-zzz-style", get_template_directory_uri() . "/style.css")
+        ->setDeps(array(KT_MAGNIFIC_POPUP_STYLE, "kt-zzz-bootstrap-style"))->setEnqueue();
+
+$config->assetsConfigurator()->addStyle("kt-zzz-font-open-sans", "http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800&amp;subset=latin,latin-ext")->setEnqueue();
 
 // --- scripty ------------------------------
 
@@ -42,9 +54,21 @@ $config->assetsConfigurator()
         ->addScript(KT_JQUERY_UNVEIL_SCRIPT)
         ->setInFooter(true)
         ->setEnqueue();
-
+$config->assetsConfigurator()
+        ->addScript(KT_MAGNIFIC_POPUP_SCRIPT)
+        ->setInFooter(true)
+        ->setEnqueue();
+//$config->assetsConfigurator()
+//        ->addScript("kt-zzz-bootstrap-script", KT_ZZZ_JS_URL . "/bootstrap.min.js")
+//        ->setInFooter(true)
+//        ->setEnqueue();
+/*
+ * Bylo by dobré používat pouze jeden skript, spojený a minifikovaný do jednoho souboru, 
+ * pak předchozí registrace nejsou třeba a stačí pouze následující:
+ */
 $config->assetsConfigurator()
         ->addScript("kt-zzz-functions-script", KT_ZZZ_JS_URL . "/kt-zzz-functions.min.js")
+        ->setDeps(array(KT_JQUERY_UNVEIL_SCRIPT, KT_MAGNIFIC_POPUP_SCRIPT, "kt-zzz-bootstrap-script"))
         ->addLocalizationData("myAjax", array("ajaxurl" => admin_url("admin-ajax.php")))
         ->setInFooter(true)
         ->setEnqueue();
@@ -84,6 +108,10 @@ add_action("wp_enqueue_scripts", "kt_enqueue_jquery_in_footer");
 
 function kt_enqueue_jquery_in_footer() {
     wp_deregister_script(KT_WP_JQUERY_SCRIPT);
+    /*
+     * V případě, že máte všechny skripty spojené do jednoho včetně (vlastní) jQuery, 
+     * tak následující 2 řádky zakomentujte, WP jQuery už pak není třeba:
+     */
     wp_register_script(KT_WP_JQUERY_SCRIPT, "/wp-includes/js/jquery/jquery.js", false, "", true);
     wp_enqueue_script(KT_WP_JQUERY_SCRIPT);
 }

@@ -6,7 +6,7 @@
         <main id="search" class="col-md-9">
             <header>
                 <h1><?php _e("Výsledky vyhledávání", ZZZ_DOMAIN); ?></h1>
-                <p><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo KT::stringEscape(get_search_query()); ?></p>
+                <p><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo get_search_query(true); ?></p>
             </header>
             <?php if (have_posts()) { ?>
                 <section class="row">

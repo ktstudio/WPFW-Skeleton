@@ -5,7 +5,7 @@ $referenceModel = $referencePresenter->getModel();
 
 <article>
     <a href="<?php echo $referenceModel->getPermalink(); ?>" title="<?php echo $referenceModel->getTitleAttribute(); ?>">
-        <?php echo $referencePresenter->getThumbnailImage(KT_ZZZ_IMAGE_SIZE_REFERENCE_THUMB, array("class" => "img-responsive", "alt" => $referenceModel->getTitleAttribute())) ?>
+        <?php echo $referencePresenter->getThumbnailImage(KT_ZZZ_IMAGE_SIZE_REFERENCE_GALLERY, array("class" => "img-responsive", "alt" => $referenceModel->getTitleAttribute())) ?>
         <div>
             <h2><?php echo $referenceModel->getTitle(); ?></h2>
             <div><?php $referencePresenter->renderParamTypes(); ?></div>

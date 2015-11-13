@@ -12,6 +12,10 @@ Základní kostra pro vlastní WordPress šablony založené na WP Frameworku
 6. Upravte vzorové soubory, doplňte vlastní (kód)...
 7. Profit :-)
 
-**Testováno na verzi WP Frameworku 1.4...*
+---
+
+**Testováno na verzi [WP Frameworku 1.5](https://github.com/ktstudio/WP-Framework/releases)...*
+
+---
 
 Copyright © KTStudio.cz 2015

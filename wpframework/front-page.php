@@ -2,6 +2,7 @@
 
 <div class="container">
     <?php
+    get_template_part("partials/slider");
     get_template_part("partials/frontpage");
     get_template_part("partials/news");
     get_template_part("partials/references");
