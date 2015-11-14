@@ -1,36 +1,35 @@
 <?php get_header(); ?>
 
-<div class="container">
+<main id="search" class="container">
     <div class="row">
-        <?php get_sidebar(); ?>
-        <main id="search" class="col-md-9">
+        <div class="col-md-12">
             <header>
                 <h1><?php _e("Výsledky vyhledávání", ZZZ_DOMAIN); ?></h1>
-                <p><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo get_search_query(true); ?></p>
+                <h2><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo get_search_query(true); ?></h2>
             </header>
             <?php if (have_posts()) { ?>
-                <section class="row">
+                <div class="row">
                     <?php
                     while (have_posts()) : the_post();
                         get_template_part("loops/loop", KT_WP_POST_KEY);
                     endwhile;
                     ?>
-                </section>
+                </div>
                 <div id="pagination" class="clearfix">
                     <?php echo KT::getPaginationLinks(); ?>
                 </div>
                 <?php
             } else {
                 ?> 
-                <section class="row">
+                <div class="row">
                     <p><?php _e("K dispozici nejsou žádné příspěvky...", ZZZ_DOMAIN); ?></p>
-                </section>
+                </div>
                 <?php
             }
             ?>
-        </main>
+        </div>
     </div>
-</div>
+</main>
 
 <?php
 get_footer();

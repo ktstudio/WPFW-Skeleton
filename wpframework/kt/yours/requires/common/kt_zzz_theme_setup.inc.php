@@ -37,8 +37,6 @@ $config->setImagesLazyLoading(true);
 
 $config->assetsConfigurator()->addStyle("kt-zzz-magnific-style", KT_MAGNIFIC_POPUP_STYLE)->setEnqueue();
 //$config->assetsConfigurator()->addStyle("kt-zzz-bootstrap-style", KT_ZZZ_CSS_URL . "/bootstrap.min.css")->setEnqueue();
-//$config->assetsConfigurator()->addStyle("kt-zzz-bootstrap-theme-style", KT_ZZZ_CSS_URL . "/bootstrap-theme.min.css")
-//        ->setDeps(array("kt-zzz-bootstrap-style"))->setEnqueue();
 /*
  * Bylo by dobré používat pouze jeden styl, spojený a minifikovaný do jednoho souboru, 
  * pak předchozí registrace nejsou třeba a stačí pouze následující:

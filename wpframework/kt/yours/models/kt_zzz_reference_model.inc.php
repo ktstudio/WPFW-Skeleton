@@ -8,11 +8,6 @@ class KT_ZZZ_Reference_Model extends KT_WP_Post_Base_Model {
 
     // --- getry & setry ------------------------
 
-
-    public function getParamInformation() {
-        return $this->getMetaValue(KT_ZZZ_Reference_Config::PARAMS_INFORMATION);
-    }
-
     public function getParamTypes() {
         return $this->getMetaValue(KT_ZZZ_Reference_Config::PARAMS_TYPES);
     }
@@ -26,7 +21,6 @@ class KT_ZZZ_Reference_Model extends KT_WP_Post_Base_Model {
     }
 
     // --- veřejné funkce ------------------------
-
 
     public function isParamInformation() {
         return KT::issetAndNotEmpty($this->getParamInformation());

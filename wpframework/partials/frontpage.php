@@ -4,7 +4,7 @@ if (KT::issetAndNotEmpty($post)) {
     $frontPageModel = $frontPagePresenter->getModel();
     ?>
     <div class="row">
-        <section id="front-page" class="col-md-12 col-lg-12">
+        <section id="front-page" class="col-md-12">
             <header>
                 <h1><?php echo $frontPageModel->getTitle(); ?></h1>
             </header>

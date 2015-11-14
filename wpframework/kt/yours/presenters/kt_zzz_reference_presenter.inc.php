@@ -17,17 +17,6 @@ class KT_ZZZ_Reference_Presenter extends KT_WP_Post_Base_Presenter {
 
     // --- veřejné funkce ------------------------------
 
-
-    public function renderParamInformation() {
-        if ($this->getModel()->isParamsInformation()) {
-            KT::theTabsIndent(0, "<ul>", true);
-            foreach (explode(PHP_EOL, htmlspecialchars(trim($this->getModel()->getParamInformation()))) as $line) {
-                KT::theTabsIndent(1, "<li>$line</li>", true);
-            }
-            KT::theTabsIndent(0, "</ul>", true, true);
-        }
-    }
-
     public function renderParamTypes() {
         $selectedTypesValue = $this->getModel()->getParamTypes();
         if (KT::issetAndNotEmpty($selectedTypesValue) && KT::arrayIsSerialized($selectedTypesValue)) {
