@@ -1,17 +1,16 @@
 <?php get_header(); ?>
 
-<main id="search" class="container">
+<main id="archive" class="container">
     <div class="row">
         <div class="col-md-12">
             <header>
-                <h1><?php _e("Výsledky vyhledávání", ZZZ_DOMAIN); ?></h1>
-                <h2><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo get_search_query(true); ?></h2>
+                <h1><?php post_type_archive_title(); ?></h1>
             </header>
             <?php if (have_posts()) { ?>
                 <div class="row">
                     <?php
                     while (have_posts()) : the_post();
-                        get_template_part("loops/loop", KT_WP_POST_KEY);
+                        get_template_part("loops/loop", $post->post_type);
                     endwhile;
                     ?>
                 </div>

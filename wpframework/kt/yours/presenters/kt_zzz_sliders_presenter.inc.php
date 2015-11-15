@@ -1,6 +1,12 @@
 <?php
 
-class KT_ZZZ_Slider_Presenter extends KT_Presenter_Base {
+/**
+ * Model pro obsluhu, resp. výpis sliderů
+ *
+ * @author Martin Hlaváč
+ * @link http://www.ktstudio.cz
+ */
+class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
 
     const DEFAULT_COUNT = 3;
 

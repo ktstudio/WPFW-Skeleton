@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Základní (formulářové) konfigurace pro stránky
+ *
+ * @author Martin Hlaváč
+ * @link http://www.ktstudio.cz
+ */
 class KT_ZZZ_Page_Config implements KT_Configable {
 
     const FORM_PREFIX = "kt-zzz-page";

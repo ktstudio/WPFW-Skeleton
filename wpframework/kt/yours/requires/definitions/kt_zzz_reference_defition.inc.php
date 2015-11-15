@@ -28,7 +28,7 @@ function kt_zzz_register_reference_post_type() {
         "capability_type" => "post",
         "query_var" => true,
         "rewrite" => array("slug" => KT_ZZZ_REFERENCE_SLUG, "with_front" => false),
-        "has_archive" => false,
+        "has_archive" => KT_ZZZ_REFERENCES_SLUG,
         "hierarchical" => false,
         "menu_position" => 4,
         "menu_icon" => "dashicons-portfolio",

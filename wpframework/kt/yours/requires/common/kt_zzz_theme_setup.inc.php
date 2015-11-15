@@ -35,7 +35,7 @@ $config->setImagesLazyLoading(true);
 
 // --- styly ---------------------------
 
-$config->assetsConfigurator()->addStyle("kt-zzz-magnific-style", KT_MAGNIFIC_POPUP_STYLE)->setEnqueue();
+$config->assetsConfigurator()->addStyle(KT_MAGNIFIC_POPUP_STYLE)->setEnqueue();
 //$config->assetsConfigurator()->addStyle("kt-zzz-bootstrap-style", KT_ZZZ_CSS_URL . "/bootstrap.min.css")->setEnqueue();
 /*
  * Bylo by dobré používat pouze jeden styl, spojený a minifikovaný do jednoho souboru, 

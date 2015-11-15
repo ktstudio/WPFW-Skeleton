@@ -1,22 +1,26 @@
-<?php get_header(); ?>
+<?php
+$termPresenter = new KT_WP_Term_Base_Presenter();
+$termModel = $termPresenter->getModel();
+get_header();
+?>
 
-<main id="search" class="container">
+<main id="category" class="container">
     <div class="row">
         <div class="col-md-12">
             <header>
-                <h1><?php _e("Výsledky vyhledávání", ZZZ_DOMAIN); ?></h1>
-                <h2><?php _e("pro:", ZZZ_DOMAIN); ?> <?php echo get_search_query(true); ?></h2>
+                <h1><?php echo $termModel->getName(); ?></h1>
+                <h2 class="hidden-xs"><?php echo $termModel->getDescription(); ?></h2>
             </header>
             <?php if (have_posts()) { ?>
                 <div class="row">
                     <?php
                     while (have_posts()) : the_post();
-                        get_template_part("loops/loop", KT_WP_POST_KEY);
+                        get_template_part("loops/loop", $post->post_type);
                     endwhile;
                     ?>
                 </div>
-                <div id="pagination" class="pagination clearfix">
-                    <?php echo KT::bootstrapPagination(); ?>
+                <div id="pagination" class="clearfix">
+                    <?php echo $termPresenter->getPaginationLinks(); ?>
                 </div>
                 <?php
             } else {

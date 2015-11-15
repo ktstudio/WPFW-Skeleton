@@ -1,8 +1,8 @@
 <?php
 
-class KT_ZZZ_Index_Presenter extends KT_Presenter_Base {
+class KT_ZZZ_News_Presenter extends KT_Presenter_Base {
 
-    private $newsQuery;
+    private $query;
 
     public function __construct() {
         parent::__construct();
@@ -13,22 +13,29 @@ class KT_ZZZ_Index_Presenter extends KT_Presenter_Base {
     /**
      * @return \WP_Query
      */
-    public function getNewsQuery() {
-        if (KT::issetAndNotEmpty($this->newsQuery)) {
-            return $this->newsQuery;
+    public function getQuery() {
+        if (KT::issetAndNotEmpty($this->query)) {
+            return $this->query;
         }
-        return $this->initNewsQuery();
+        return $this->initQuery();
     }
 
     // --- veřejné metody ------------------------------
 
-    public function theNewsQuery() {
-        self::theQueryLoops($this->getNewsQuery(), KT_WP_POST_KEY);
+    public function isQuery() {
+        $query = $this->getQuery();
+        return KT::issetAndNotEmpty($query) && $query->have_posts();
+    }
+
+    public function theQuery() {
+        if ($this->isQuery()) {
+            self::theQueryLoops($this->getQuery(), KT_WP_POST_KEY);
+        }
     }
 
     // --- neveřejné metody ------------------------------
 
-    private function initNewsQuery() {
+    private function initQuery() {
         $args = array(
             "post_type" => KT_WP_POST_KEY,
             "post_status" => "publish",
@@ -38,7 +45,7 @@ class KT_ZZZ_Index_Presenter extends KT_Presenter_Base {
             "order" => KT_Repository::ORDER_DESC,
             "cat" => KT_ZZZ::getThemeModel()->getCategoryNewsId(),
         );
-        return $this->newsQuery = new WP_Query($args);
+        return $this->query = new WP_Query($args);
     }
 
 }

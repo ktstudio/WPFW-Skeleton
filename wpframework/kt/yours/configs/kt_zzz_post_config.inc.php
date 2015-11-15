@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Základní (formulářové) konfigurace pro příspěvky
+ *
+ * @author Martin Hlaváč
+ * @link http://www.ktstudio.cz
+ */
 class KT_ZZZ_Post_Config implements KT_Configable {
 
     const FORM_PREFIX = "kt-zzz-post";

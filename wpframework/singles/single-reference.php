@@ -14,10 +14,19 @@ get_header();
             if ($referenceModel->hasExcrept()) {
                 echo $referenceModel->getExcerpt();
             }
-            $referencePresenter->renderParamDateCreation();
-            $referencePresenter->renderParamClientName();
-            echo $referenceModel->getContent();
             ?>
+            <div class="row">
+                <div class="col-md-6">
+                    <?php echo $referencePresenter->getThumbnailImageWithSelfLink(KT_ZZZ_IMAGE_SIZE_REFERENCE_GALLERY, null, null); ?>
+                </div>
+                <div class="col-md-6">
+                    <?php
+                    $referencePresenter->renderParamDateCreation();
+                    $referencePresenter->renderParamClientName();
+                    ?>
+                </div>
+            </div>
+            <?php echo $referenceModel->getContent(); ?>
         </div>
         <div class="col-md-3">
             <?php get_sidebar(); ?>

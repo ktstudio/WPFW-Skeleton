@@ -6,7 +6,13 @@ $themeSettings = new KT_Custom_Metaboxes_Subpage(
         "themes.php", __("Nastavení šablony", ZZZ_DOMAIN), __("Nastavení šablony", ZZZ_DOMAIN), "update_core", KT_WP_Configurator::THEME_SETTING_PAGE_SLUG);
 $themeSettings->setRenderSaveButton()->register();
 
-KT_MetaBox::createMultiple(KT_ZZZ_Theme_Config::getAllGenericFieldsets(), KT_WP_Configurator::getThemeSettingSlug(), KT_MetaBox_Data_Type_Enum::OPTIONS);
+KT_MetaBox::createMultiple(KT_ZZZ_Theme_Config::getAllNormalFieldsets(), KT_WP_Configurator::getThemeSettingSlug(), KT_MetaBox_Data_Type_Enum::OPTIONS);
+
+$themeSideMetaboxes = KT_MetaBox::createMultiple(KT_ZZZ_Theme_Config::getAllSideFieldsets(), KT_WP_Configurator::getThemeSettingSlug(), KT_MetaBox_Data_Type_Enum::OPTIONS, false);
+foreach ($themeSideMetaboxes as $themeSideMetabox) {
+    $themeSideMetabox->setContext(KT_MetaBox::CONTEXT_SIDE);
+    $themeSideMetabox->register();
+}
 
 // --- post ------------------------
 
@@ -19,6 +25,12 @@ KT_MetaBox::createMultiple(KT_ZZZ_Page_Config::getAllGenericFieldsets(), KT_WP_P
 // --- reference ------------------------
 
 KT_MetaBox::createMultiple(KT_ZZZ_Reference_Config::getAllGenericFieldsets(), KT_ZZZ_REFERENCE_KEY, KT_MetaBox_Data_Type_Enum::POST_META);
+
+// --- competitive advantage ------------------------
+
+KT_Metabox::createCrud(
+        KT_ZZZ_Competitive_Advantage_Config::getDetailFieldset(), KT_Custom_Metaboxes_Page::getCustomMetaboxPageScreenName(KT_ZZZ_Competitive_Advantage_Model::PREFIX), "KT_ZZZ_Competitive_Advantage_Model", KT_ZZZ_Competitive_Advantage_Model::ID_COLUMN
+);
 
 // --- content ------------------------
 

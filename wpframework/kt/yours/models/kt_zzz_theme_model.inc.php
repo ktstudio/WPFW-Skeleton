@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Model pro definici nastavení šablony
+ *
+ * @author Martin Hlaváč
+ * @link http://www.ktstudio.cz
+ */
 class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
 
     private $categoryNewsPermalink;
@@ -9,37 +15,41 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         parent::__construct(KT_ZZZ_Theme_Config::FORM_PREFIX);
     }
 
-    // --- KATEGORIE ------------------------
+    // --- getry & setry ------------------------
 
     public function getCategoryNewsId() {
         return $this->getOption(KT_ZZZ_Theme_Config::CATEGORY_NEWS_ID);
     }
 
     public function getCategoryNewsPermalink() {
-        $categoryNewsPermalink = $this->categoryNewsPermalink;
-        if (KT::issetAndNotEmpty($categoryNewsPermalink)) {
-            return $categoryNewsPermalink;
+        if (KT::issetAndNotEmpty($this->categoryNewsPermalink)) {
+            return $this->categoryNewsPermalink;
         }
         $categoryNewsId = $this->getCategoryNewsId();
         if (KT::isIdFormat($categoryNewsId)) {
             return $this->categoryNewsPermalink = get_category_link($categoryNewsId);
         }
-        return null;
+        return $this->categoryNewsPermalink = null;
     }
 
     public function getCategoryNewsTitle() {
-        $categoryNewsTitle = $this->categoryNewsTitle;
-        if (KT::issetAndNotEmpty($categoryNewsTitle)) {
-            return $categoryNewsTitle;
+        if (KT::issetAndNotEmpty($this->categoryNewsTitle)) {
+            return $this->categoryNewsTitle;
         }
         $categoryNewsId = $this->getCategoryNewsId();
         if (KT::isIdFormat($categoryNewsId)) {
             return $this->categoryNewsTitle = get_cat_name($categoryNewsId);
         }
-        return null;
+        return $this->categoryNewsTitle = null;
     }
 
-    // --- ADRESA ------------------------
+    public function getCompetitiveAdvantagesTitle() {
+        return $this->getOption(KT_ZZZ_Theme_Config::COMPETITIVE_ADVATAGES_TITLE);
+    }
+
+    public function getCompetitiveAdvantagesMaxCount() {
+        return $this->getOption(KT_ZZZ_Theme_Config::COMPETITIVE_ADVATAGES_MAX_COUNT);
+    }
 
     public function getAddressTitle() {
         return $this->getOption(KT_ZZZ_Theme_Config::ADDRESS_TITLE);
@@ -57,8 +67,6 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->getOption(KT_ZZZ_Theme_Config::ADDRESS_ZIP);
     }
 
-    // --- KONTAKTY ------------------------
-
     public function getContactPhone() {
         return $this->getOption(KT_ZZZ_Theme_Config::CONTACT_PHONE);
     }
@@ -71,43 +79,83 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->getOption(KT_ZZZ_Theme_Config::CONTACT_EMAIL);
     }
 
-    // --- SOCIÁLNÍ SÍTĚ ------------------------
-
     public function getSocialFacebook() {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_FACEBOOK);
-    }
-
-    public function theSocialFacebook() {
-        $this->theSocialListItem($this->getSocialFacebook(), __("Facebook", ZZZ_DOMAIN), "facebook");
     }
 
     public function getSocialTwitter() {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_TWITTER);
     }
 
-    public function theSocialTwitter() {
-        $this->theSocialListItem($this->getSocialTwitter(), __("Twitter", ZZZ_DOMAIN), "twitter");
-    }
-
     public function getSocialGooglePlus() {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_GOOGLE_PLUS);
-    }
-
-    public function theSocialGooglePlus() {
-        $this->theSocialListItem($this->getSocialGooglePlus(), __("Google+", ZZZ_DOMAIN), "google");
     }
 
     public function getSocialYouTube() {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_YOUTUBE);
     }
 
-    public function theSocialYouTube() {
-        $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", ZZZ_DOMAIN), "ytb");
+    // --- veřejné metody ---------------------------
+
+    public function isCategoryNews() {
+        return KT::isIdFormat($this->getCategoryNewsId());
     }
 
-    // --- HELPERS ------------------------
+    public function isCompetitiveAdvantagesTitle() {
+        return KT::issetAndNotEmpty($this->getCompetitiveAdvantagesTitle());
+    }
 
-    public function theSocialListItem($url, $title, $class) {
+    public function isCompetitiveAdvantagesMaxCount() {
+        return KT::issetAndNotEmpty($this->getCompetitiveAdvantagesMaxCount());
+    }
+
+    public function isAddressTitle() {
+        return KT::issetAndNotEmpty($this->getAddressTitle());
+    }
+
+    public function isAddressStreet() {
+        return KT::issetAndNotEmpty($this->getAddressStreet());
+    }
+
+    public function isAddressCity() {
+        return KT::issetAndNotEmpty($this->getAddressCity());
+    }
+
+    public function isAddressZip() {
+        return KT::issetAndNotEmpty($this->getAddressZip());
+    }
+
+    public function isContactPhone() {
+        return KT::issetAndNotEmpty($this->getContactPhone());
+    }
+
+    public function isContactMobile() {
+        return KT::issetAndNotEmpty($this->getContactMobile());
+    }
+
+    public function isContactEmail() {
+        return KT::issetAndNotEmpty($this->getContactEmail());
+    }
+
+    public function theSocialFacebook() {
+        $this->theSocialListItem($this->getSocialFacebook(), __("Facebook", ZZZ_DOMAIN), "facebook");
+    }
+
+    public function theSocialTwitter() {
+        $this->theSocialListItem($this->getSocialTwitter(), __("Twitter", ZZZ_DOMAIN), "twitter");
+    }
+
+    public function theSocialGooglePlus() {
+        $this->theSocialListItem($this->getSocialGooglePlus(), __("Google+", ZZZ_DOMAIN), "google");
+    }
+
+    public function theSocialYouTube() {
+        $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", ZZZ_DOMAIN), "youtube");
+    }
+
+    // --- neveřejné metody ------------------------
+
+    private function theSocialListItem($url, $title, $class) {
         if (KT::issetAndNotEmpty($url) && KT::issetAndNotEmpty($title) && KT::issetAndNotEmpty($class)) {
             echo "<li><a href=\"{$url}\" class=\"{$class}\" title=\"{$title}\">{$title}</a></li>";
         }

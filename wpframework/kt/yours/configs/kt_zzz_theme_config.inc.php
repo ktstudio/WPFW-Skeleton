@@ -9,6 +9,7 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
     public static function getAllGenericFieldsets() {
         return array(
             self::CATEGORY_FIELDSET => self::getCategoryFieldset(),
+            self::COMPETITIVE_ADVATAGES_FIELDSET => self::getCompetitiveAdvantagesFieldset(),
             self::ADDRESS_FIELDSET => self::getAddressFieldset(),
             self::CONTACT_FIELDSET => self::getContactFieldset(),
             self::SOCIAL_FIELDSET => self::getSocialFieldset(),
@@ -26,6 +27,7 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
     public static function getAllSideFieldsets() {
         return array(
             self::CATEGORY_FIELDSET => self::getCategoryFieldset(),
+            self::COMPETITIVE_ADVATAGES_FIELDSET => self::getCompetitiveAdvantagesFieldset(),
         );
     }
 
@@ -39,6 +41,23 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
         $fieldset->setPostPrefix(self::CATEGORY_FIELDSET);
 
         $fieldset->addWpCategory(self::CATEGORY_NEWS_ID, __("Novinky:", ZZZ_DOMAIN));
+
+        return $fieldset;
+    }
+
+    // --- KONKURENČNÍ VÝHODY ------------------------
+
+    const COMPETITIVE_ADVATAGES_FIELDSET = "kt-zzz-theme-competitive-advantages";
+    const COMPETITIVE_ADVATAGES_TITLE = "kt-zzz-theme-competitive-advantages-title";
+    const COMPETITIVE_ADVATAGES_MAX_COUNT = "kt-zzz-theme-competitive-advantages-max-count";
+
+    public static function getCompetitiveAdvantagesFieldset() {
+        $fieldset = new KT_Form_Fieldset(self::COMPETITIVE_ADVATAGES_FIELDSET, __("Konkurenční výhody", ZZZ_DOMAIN));
+        $fieldset->setPostPrefix(self::COMPETITIVE_ADVATAGES_FIELDSET);
+
+        $fieldset->addText(self::COMPETITIVE_ADVATAGES_TITLE, __("Nadpis:", ZZZ_DOMAIN));
+        $fieldset->addText(self::COMPETITIVE_ADVATAGES_MAX_COUNT, __("Max. počet:", ZZZ_DOMAIN))
+                ->setInputType(KT_Text_Field::INPUT_NUMBER);
 
         return $fieldset;
     }

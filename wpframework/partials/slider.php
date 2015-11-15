@@ -1,7 +1,8 @@
 <?php
-$sliderPresenter = new KT_ZZZ_Slider_Presenter();
+$sliderPresenter = new KT_ZZZ_Sliders_Presenter();
 if ($sliderPresenter->isPosts()) {
     ?>
+
     <section id="slider">
         <div id="carousel" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -12,5 +13,6 @@ if ($sliderPresenter->isPosts()) {
             </div>
         </div>
     </section>
+
 <?php
 }

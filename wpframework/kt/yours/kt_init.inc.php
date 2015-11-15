@@ -16,6 +16,7 @@ define("KT_ZZZ_SLIDER_SLUG", "slider");
 
 define("KT_ZZZ_REFERENCE_KEY", "reference");
 define("KT_ZZZ_REFERENCE_SLUG", "reference");
+define("KT_ZZZ_REFERENCES_SLUG", "reference");
 
 // --- inicializace ---------------------------
 

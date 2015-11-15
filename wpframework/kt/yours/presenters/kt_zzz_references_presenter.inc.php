@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Model pro obsluhu, resp. výpis referencí
+ *
+ * @author Martin Hlaváč
+ * @link http://www.ktstudio.cz
+ */
 class KT_ZZZ_References_Presenter extends KT_Presenter_Base {
 
     const DEFAULT_COUNT = 12;

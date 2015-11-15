@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Výčet dostupných typů referencí
+ *
+ * @author Martin Hlaváč
+ * @link http://www.ktstudio.cz
+ */
 final class KT_ZZZ_Reference_Type_Enum extends KT_Enum {
 
     const NONE = 0;

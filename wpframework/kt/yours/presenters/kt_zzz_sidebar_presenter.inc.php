@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Presenter pro správu vždy aktuálního sidebaru
- * 
+ * Model pro obsluhu, resp. výpis sidebaru
+ *
  * @author Martin Hlaváč
  * @link http://www.ktstudio.cz
  */
