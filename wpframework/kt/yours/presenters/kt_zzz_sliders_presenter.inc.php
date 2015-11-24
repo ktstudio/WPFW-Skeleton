@@ -54,8 +54,9 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
                 $imageSrc = wp_get_attachment_image_src(get_post_thumbnail_id($post->ID), KT_ZZZ_IMAGE_SIZE_SLIDER);
                 if (KT::arrayIssetAndNotEmpty($imageSrc)) {
                     $imageUrl = $imageSrc[0];
+                    $transparentUrl = KT::imageGetTransparent();
                     echo "<div class=\"item$activePart\">";
-                    echo "<img src=\"$imageUrl\" alt=\"{$post->post_title}\" class=\"img-responsive\">";
+                    echo "<img data-src=\"$imageUrl\" src=\"$transparentUrl\" alt=\"{$post->post_title}\" class=\"img-responsive\">";
                     echo "</div>";
                 }
                 $number++;
