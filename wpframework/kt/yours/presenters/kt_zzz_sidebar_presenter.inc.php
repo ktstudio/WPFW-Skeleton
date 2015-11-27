@@ -29,7 +29,7 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
      * 
      * @param string $currentSidebarName
      * 
-     * @return \KT_VLS_Sidebar_Presenter
+     * @return \KT_ZZZ_Sidebar_Presenter
      */
     public function setCurrentSidebarName($currentSidebarName) {
         $this->currentSidebarName = $currentSidebarName;
@@ -52,7 +52,7 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
     /**
      * Provede inicializaci aktuálního sidebaru 
      * 
-     * @return \KT_VLS_Sidebar_Presenter
+     * @return \KT_ZZZ_Sidebar_Presenter
      */
     private function initCurrentSidebar() {
         return $this->setCurrentSidebarName(KT_ZZZ_SIDEBAR_DEFAULT);

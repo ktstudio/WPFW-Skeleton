@@ -103,9 +103,9 @@ $config->initialize();
 
 // --- umístění jQuery pluginu do patičky ------------------------------
 
-add_action("wp_enqueue_scripts", "kt_enqueue_jquery_in_footer");
+add_action("wp_enqueue_scripts", "kt_zzz_enqueue_jquery_in_footer");
 
-function kt_enqueue_jquery_in_footer() {
+function kt_zzz_enqueue_jquery_in_footer() {
     wp_deregister_script(KT_WP_JQUERY_SCRIPT);
     /*
      * V případě, že máte všechny skripty spojené do jednoho včetně (vlastní) jQuery, 
