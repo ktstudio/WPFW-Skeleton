@@ -7,18 +7,18 @@ function kt_zzz_register_slider_post_type() {
     // --- post type ------------------------
 
     $labels = array(
-        "name" => __("Slidery", KT_DOMAIN),
-        "singular_name" => __("Slider", KT_DOMAIN),
-        "add_new" => __("Přidat slider", KT_DOMAIN),
-        "add_new_item" => __("Přidat nový slider", KT_DOMAIN),
-        "edit_item" => __("Změnit slider", KT_DOMAIN),
-        "new_item" => __("Nový slider", KT_DOMAIN),
-        "view_item" => __("Zobrazit slider", KT_DOMAIN),
-        "all_items" => __("Všechny slidery", KT_DOMAIN),
-        "search_items" => __("Hledat slidery", KT_DOMAIN),
-        "not_found" => __("Žádné slidery nenalezeny", KT_DOMAIN),
-        "not_found_in_trash" => __("Žádné slidery v koši", KT_DOMAIN),
-        "menu_name" => __("Slidery", KT_DOMAIN),
+        "name" => __("Slidy", ZZZ_DOMAIN),
+        "singular_name" => __("Slide", ZZZ_DOMAIN),
+        "add_new" => __("Přidat slide", ZZZ_DOMAIN),
+        "add_new_item" => __("Přidat nový slide", ZZZ_DOMAIN),
+        "edit_item" => __("Změnit slide", ZZZ_DOMAIN),
+        "new_item" => __("Nový slide", ZZZ_DOMAIN),
+        "view_item" => __("Zobrazit slide", ZZZ_DOMAIN),
+        "all_items" => __("Všechny slidy", ZZZ_DOMAIN),
+        "search_items" => __("Hledat slidy", ZZZ_DOMAIN),
+        "not_found" => __("Žádné slidy nenalezeny", ZZZ_DOMAIN),
+        "not_found_in_trash" => __("Žádné slidy v koši", ZZZ_DOMAIN),
+        "menu_name" => __("Slidy", ZZZ_DOMAIN),
     );
 
     $args = array(
