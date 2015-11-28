@@ -114,8 +114,3 @@ function kt_zzz_enqueue_jquery_in_footer() {
     wp_register_script(KT_WP_JQUERY_SCRIPT, "/wp-includes/js/jquery/jquery.js", false, "", true);
     wp_enqueue_script(KT_WP_JQUERY_SCRIPT);
 }
-
-// --- smajlíci ------------------------------
-
-remove_action("wp_head", "print_emoji_detection_script", 7);
-remove_action("wp_print_styles", "print_emoji_styles");

@@ -1,7 +1,4 @@
-<?php
-$referencePresenter = new KT_ZZZ_Reference_Presenter($post);
-$referenceModel = $referencePresenter->getModel();
-?>
+<?php $referencePresenter = new KT_ZZZ_Reference_Presenter($referenceModel = new KT_ZZZ_Reference_Model($post)); ?>
 
 <article class="col-sm-12 col-md-6 col-lg-4">
     <a href="<?php echo $referenceModel->getPermalink(); ?>" title="<?php echo $referenceModel->getTitleAttribute(); ?>">

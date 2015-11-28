@@ -1,6 +1,5 @@
 <?php
-$referencePresenter = new KT_ZZZ_Reference_Presenter($post);
-$referenceModel = $referencePresenter->getModel();
+$referencePresenter = new KT_ZZZ_Reference_Presenter($referenceModel = new KT_ZZZ_Reference_Model($post));
 get_header();
 ?>   
 

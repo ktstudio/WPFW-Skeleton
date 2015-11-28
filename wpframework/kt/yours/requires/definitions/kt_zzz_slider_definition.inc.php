@@ -23,8 +23,8 @@ function kt_zzz_register_slider_post_type() {
 
     $args = array(
         "labels" => $labels,
-        "public" => true,
-        "publicly_queryable" => true,
+        "public" => false,
+        "publicly_queryable" => false,
         "show_ui" => true,
         "show_in_menu" => true,
         "capability_type" => "post",

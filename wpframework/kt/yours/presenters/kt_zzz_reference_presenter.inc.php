@@ -8,8 +8,8 @@
  */
 class KT_ZZZ_Reference_Presenter extends KT_WP_Post_Base_Presenter {
 
-    public function __construct(WP_Post $post) {
-        parent::__construct(new KT_ZZZ_Reference_Model($post));
+    public function __construct(KT_ZZZ_Reference_Model $model) {
+        parent::__construct($model);
     }
 
     // --- getry & setry ------------------------------

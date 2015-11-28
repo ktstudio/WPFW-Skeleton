@@ -1,6 +1,5 @@
 <?php
-$pagePresenter = new KT_WP_Post_Base_Presenter($post);
-$pageModel = $pagePresenter->getModel();
+$pagePresenter = new KT_ZZZ_Page_Presenter($pageModel = new KT_ZZZ_Page_Model($post));
 get_header();
 ?>   
 
