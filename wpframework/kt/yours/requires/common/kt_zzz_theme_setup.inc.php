@@ -86,7 +86,9 @@ $config->addSidebar(KT_ZZZ_SIDEBAR_DEFAULT)
 
 // --- dashboard ------------------------------
 
-$config->metaboxRemover()->clearWordpressDashboard(true);
+$config->metaboxRemover()->clearWordpressDashboard(true)
+        ->removeDashboardMetabox("icl_dashboard_widget")
+        ->removeDashboardMetabox("wpseo-dashboard-overview");
 
 // --- widgety ------------------------------
 

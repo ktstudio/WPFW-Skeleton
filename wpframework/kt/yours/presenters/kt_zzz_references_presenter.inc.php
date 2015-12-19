@@ -28,14 +28,15 @@ class KT_ZZZ_References_Presenter extends KT_Presenter_Base {
         return $this->initQuery();
     }
 
+    // --- veřejné metody ------------------------------
+
     /**
      * @return bool
      */
     public function isQuery() {
-        return KT::issetAndNotEmpty($this->getQuery()) && $this->getQuery()->have_posts();
+        $query = $this->getQuery();
+        return KT::issetAndNotEmpty($query) && $query->have_posts();
     }
-
-    // --- veřejné metody ------------------------------
 
     public function theQuery() {
         if ($this->isQuery()) {

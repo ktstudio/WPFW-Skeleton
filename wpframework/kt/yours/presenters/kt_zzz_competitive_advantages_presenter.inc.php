@@ -9,6 +9,7 @@
 class KT_ZZZ_Competitive_Advantages_Presenter extends KT_Presenter_Base {
 
     private $items = null;
+    private $count = null;
 
     public function __construct() {
         parent::__construct();
@@ -16,9 +17,7 @@ class KT_ZZZ_Competitive_Advantages_Presenter extends KT_Presenter_Base {
 
     // --- getry & setry ------------------------
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getItems() {
         if (KT::issetAndNotEmpty($this->items)) {
             return $this->items;
@@ -26,10 +25,22 @@ class KT_ZZZ_Competitive_Advantages_Presenter extends KT_Presenter_Base {
         return $this->initItems();
     }
 
+    /** @return array */
+    public function getCount() {
+        if (isset($this->count)) {
+            return $this->count;
+        }
+        $items = $this->getItems();
+        if (KT::arrayIssetAndNotEmpty($items)) {
+            return $this->count = count($items);
+        }
+        return $this->count = 0;
+    }
+
     // --- veřejné metody ------------------------
 
     public function isItems() {
-        return KT::arrayIssetAndNotEmpty($this->getItems());
+        return $this->getCount() > 0;
     }
 
     public function theItems() {

@@ -42,9 +42,9 @@ class KT_ZZZ_Reference_Config implements KT_Configable {
         $referenceTypes = new KT_ZZZ_Reference_Type_Enum();
         $referenceOptions = KT::arrayRemoveByKey($referenceTypes->getTranslates(), KT_ZZZ_Reference_Type_Enum::NONE);
 
-        $fieldset->addText(self::PARAMS_DATE, "Datum");
+        $fieldset->addText(self::PARAMS_DATE, __("Datum:", ZZZ_DOMAIN));
 
-        $fieldset->addText(self::PARAMS_CLIENT, "Klient");
+        $fieldset->addText(self::PARAMS_CLIENT, __("Klient:", ZZZ_DOMAIN));
 
         $fieldset->addCheckbox(self::PARAMS_TYPES, __("Typy:", ZZZ_DOMAIN))
                 ->setOptionsData($referenceOptions);

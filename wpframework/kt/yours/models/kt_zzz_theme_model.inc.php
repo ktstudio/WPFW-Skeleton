@@ -157,7 +157,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
 
     private function theSocialListItem($url, $title, $class) {
         if (KT::issetAndNotEmpty($url) && KT::issetAndNotEmpty($title) && KT::issetAndNotEmpty($class)) {
-            echo "<li><a href=\"{$url}\" class=\"{$class}\" title=\"{$title}\">{$title}</a></li>";
+            echo "<li><a href=\"{$url}\" title=\"{$title}\" target=\"_blank\" class=\"{$class}\">{$title}</a></li>";
         }
     }
 

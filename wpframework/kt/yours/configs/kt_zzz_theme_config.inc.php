@@ -96,6 +96,7 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
         $fieldset->addText(self::CONTACT_PHONE, __("Telefon:", ZZZ_DOMAIN));
         $fieldset->addText(self::CONTACT_MOBILE, __("Mobil:", ZZZ_DOMAIN));
         $fieldset->addText(self::CONTACT_EMAIL, __("E-mail:", ZZZ_DOMAIN))
+                ->setInputType(KT_Text_Field::INPUT_EMAIL)
                 ->addRule(KT_Field_Validator::EMAIL, __("E-mail musí být ve správném tvaru", ZZZ_DOMAIN));
 
         return $fieldset;
