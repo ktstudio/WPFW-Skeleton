@@ -46,21 +46,21 @@ function kt_zzz_register_reference_post_type() {
 // --- admin sloupce ---------------------------
 
 if (is_admin()) { // vlastní sloupce v administraci
-    $giftAdminColumns = new KT_Admin_Columns(KT_ZZZ_REFERENCE_KEY);
-    $giftAdminColumns->addColumn("post_thumbnail", array(
+    $referenceAdminColumns = new KT_Admin_Columns(KT_ZZZ_REFERENCE_KEY);
+    $referenceAdminColumns->addColumn("post_thumbnail", array(
         KT_Admin_Columns::LABEL_PARAM_KEY => __("Foto", ZZZ_DOMAIN),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::THUMBNAIL_TYPE_KEY,
         KT_Admin_Columns::INDEX_PARAM_KEY => 0,
             )
     );
-    $giftAdminColumns->addColumn(KT_ZZZ_Reference_Config::PARAMS_DATE, array(
+    $referenceAdminColumns->addColumn(KT_ZZZ_Reference_Config::PARAMS_DATE, array(
         KT_Admin_Columns::LABEL_PARAM_KEY => __("Datum", ZZZ_DOMAIN),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::POST_META_TYPE_KEY,
         KT_Admin_Columns::METAKEY_PARAM_KEY => KT_ZZZ_Reference_Config::PARAMS_DATE,
         KT_Admin_Columns::SORTABLE_PARAM_KEY => true,
         KT_Admin_Columns::INDEX_PARAM_KEY => 3,
     ));
-    $giftAdminColumns->addColumn(KT_ZZZ_Reference_Config::PARAMS_CLIENT, array(
+    $referenceAdminColumns->addColumn(KT_ZZZ_Reference_Config::PARAMS_CLIENT, array(
         KT_Admin_Columns::LABEL_PARAM_KEY => __("Klient", ZZZ_DOMAIN),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::POST_META_TYPE_KEY,
         KT_Admin_Columns::METAKEY_PARAM_KEY => KT_ZZZ_Reference_Config::PARAMS_CLIENT,

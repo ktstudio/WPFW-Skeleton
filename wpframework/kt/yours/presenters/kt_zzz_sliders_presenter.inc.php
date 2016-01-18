@@ -11,6 +11,7 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
     const DEFAULT_COUNT = 3;
 
     private $posts = null;
+    private $count;
 
     public function __construct() {
         parent::__construct();
@@ -18,9 +19,7 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
 
     // --- getry & setry ------------------------
 
-    /**
-     * @return array
-     */
+    /** @return array */
     public function getPosts() {
         if (KT::issetAndNotEmpty($this->posts)) {
             return $this->posts;
@@ -28,11 +27,22 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
         return $this->initPosts();
     }
 
+    /** @return int */
+    public function getCount() {
+        if (isset($this->count)) {
+            return $this->count;
+        }
+        $posts = $this->getPosts();
+        if (KT::issetAndNotEmpty($posts)) {
+            return $this->count = count($posts);
+        }
+        return $this->count = 0;
+    }
+
     // --- veřejné metody ------------------------
 
     public function isPosts() {
-        $posts = $this->getPosts();
-        return KT::arrayIssetAndNotEmpty($posts);
+        return $this->getCount() > 0;
     }
 
     public function theIndicators() {

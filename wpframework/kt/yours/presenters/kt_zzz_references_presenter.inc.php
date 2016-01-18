@@ -56,7 +56,7 @@ class KT_ZZZ_References_Presenter extends KT_Presenter_Base {
             "post_status" => "publish",
             "posts_per_page" => self::DEFAULT_COUNT,
             "orderby" => "menu_order title",
-            "order" => KT_Repository::ORDER_DESC,
+            "order" => KT_Repository::ORDER_ASC,
         ));
     }
 
