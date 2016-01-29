@@ -99,6 +99,10 @@ $config->widgetRemover()->removeAllSystemWidgets(true)
 
 $config->headRemover()->removeRecommendSystemHeads();
 
+// --- Stránka s theme options ------------------------------
+
+$config->setThemeSettingPage();
+
 // --- incializace ------------------------------
 
 $config->initialize();
