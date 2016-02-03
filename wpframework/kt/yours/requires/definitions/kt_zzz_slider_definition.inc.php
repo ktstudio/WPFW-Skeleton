@@ -48,11 +48,18 @@ function kt_zzz_register_slider_post_type() {
 // --- admin sloupce ---------------------------
 
 if (is_admin()) { // vlastní sloupce v administraci
-    $giftAdminColumns = new KT_Admin_Columns(KT_ZZZ_SLIDER_SLUG);
-    $giftAdminColumns->addColumn("post_thumbnail", array(
+    $sliderColumns = new KT_Admin_Columns(KT_ZZZ_SLIDER_SLUG);
+    $sliderColumns->addColumn("post_thumbnail", array(
         KT_Admin_Columns::LABEL_PARAM_KEY => __("Foto", ZZZ_DOMAIN),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::THUMBNAIL_TYPE_KEY,
         KT_Admin_Columns::INDEX_PARAM_KEY => 0,
             )
     );
+    $sliderColumns->addColumn("menu_order", array(
+        KT_Admin_Columns::LABEL_PARAM_KEY => __("Pořadí", HB_DOMAIN),
+        KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::POST_PROPERTY_TYPE_KEY,
+        KT_Admin_Columns::PROPERTY_PARAM_KEY => "menu_order",
+        KT_Admin_Columns::SORTABLE_PARAM_KEY => true,
+        KT_Admin_Columns::INDEX_PARAM_KEY => 3,
+    ));
 }

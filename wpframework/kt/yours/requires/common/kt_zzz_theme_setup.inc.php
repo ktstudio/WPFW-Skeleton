@@ -92,7 +92,7 @@ $config->metaboxRemover()->clearWordpressDashboard(true)
 
 // --- widgety ------------------------------
 
-$config->widgetRemover()->removeAllSystemWidgets(true)
+$config->widgetRemover()->removeAllSystemWidgets(true, true)
         ->removeWidget("bcn_widget");
 
 // --- head ------------------------------

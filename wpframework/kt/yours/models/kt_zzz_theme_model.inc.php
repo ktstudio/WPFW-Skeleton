@@ -106,7 +106,7 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
     }
 
     public function isCompetitiveAdvantagesMaxCount() {
-        return KT::issetAndNotEmpty($this->getCompetitiveAdvantagesMaxCount());
+        return KT::isIdFormat($this->getCompetitiveAdvantagesMaxCount());
     }
 
     public function isAddressTitle() {
