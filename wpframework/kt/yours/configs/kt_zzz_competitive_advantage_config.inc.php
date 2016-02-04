@@ -8,7 +8,7 @@
  */
 class KT_ZZZ_Competitive_Advantage_Config {
 
-    const FORM_PREFIX = "kt-wet-competitive-advantage";
+    const FORM_PREFIX = "kt-zzz-competitive-advantage";
 
     // --- fieldsets ---------------------------
 
