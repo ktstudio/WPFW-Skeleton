@@ -74,13 +74,13 @@ $config->assetsConfigurator()
 
 // --- menu ---------------------------
 
-$config->addWpMenu(KT_ZZZ_NAVIGATION_MAIN_MENU, __("Menu v hlavičce", ZZZ_DOMAIN));
+$config->addWpMenu(KT_ZZZ_NAVIGATION_MAIN_MENU, __("Menu v hlavičce", "ZZZ_DOMAIN"));
 
 // --- sidebars ------------------------------
 
 $config->addSidebar(KT_ZZZ_SIDEBAR_DEFAULT)
-        ->setName(__("Default", ZZZ_DOMAIN))
-        ->setDescription(__("Výchozí", ZZZ_DOMAIN))
+        ->setName(__("Default", "ZZZ_DOMAIN"))
+        ->setDescription(__("Výchozí", "ZZZ_DOMAIN"))
         ->setBeforeWidget('<div id="%1$s" class="widget %2$s">')
         ->setAfterWidget("</div>");
 

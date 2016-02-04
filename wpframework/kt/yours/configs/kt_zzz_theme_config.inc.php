@@ -37,10 +37,10 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
     const CATEGORY_NEWS_ID = "kt-zzz-theme-category-news-id";
 
     public static function getCategoryFieldset() {
-        $fieldset = new KT_Form_Fieldset(self::CATEGORY_FIELDSET, __("Kategorie", ZZZ_DOMAIN));
+        $fieldset = new KT_Form_Fieldset(self::CATEGORY_FIELDSET, __("Kategorie", "ZZZ_DOMAIN"));
         $fieldset->setPostPrefix(self::CATEGORY_FIELDSET);
 
-        $fieldset->addWpCategory(self::CATEGORY_NEWS_ID, __("Novinky:", ZZZ_DOMAIN));
+        $fieldset->addWpCategory(self::CATEGORY_NEWS_ID, __("Novinky:", "ZZZ_DOMAIN"));
 
         return $fieldset;
     }
@@ -52,11 +52,11 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
     const COMPETITIVE_ADVATAGES_MAX_COUNT = "kt-zzz-theme-competitive-advantages-max-count";
 
     public static function getCompetitiveAdvantagesFieldset() {
-        $fieldset = new KT_Form_Fieldset(self::COMPETITIVE_ADVATAGES_FIELDSET, __("Konkurenční výhody", ZZZ_DOMAIN));
+        $fieldset = new KT_Form_Fieldset(self::COMPETITIVE_ADVATAGES_FIELDSET, __("Konkurenční výhody", "ZZZ_DOMAIN"));
         $fieldset->setPostPrefix(self::COMPETITIVE_ADVATAGES_FIELDSET);
 
-        $fieldset->addText(self::COMPETITIVE_ADVATAGES_TITLE, __("Nadpis:", ZZZ_DOMAIN));
-        $fieldset->addText(self::COMPETITIVE_ADVATAGES_MAX_COUNT, __("Max. počet:", ZZZ_DOMAIN))
+        $fieldset->addText(self::COMPETITIVE_ADVATAGES_TITLE, __("Nadpis:", "ZZZ_DOMAIN"));
+        $fieldset->addText(self::COMPETITIVE_ADVATAGES_MAX_COUNT, __("Max. počet:", "ZZZ_DOMAIN"))
                 ->setInputType(KT_Text_Field::INPUT_NUMBER);
 
         return $fieldset;
@@ -71,13 +71,13 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
     const ADDRESS_ZIP = "kt-zzz-theme-address-zip";
 
     public static function getAddressFieldset() {
-        $fieldset = new KT_Form_Fieldset(self::ADDRESS_FIELDSET, __("Adresa", ZZZ_DOMAIN));
+        $fieldset = new KT_Form_Fieldset(self::ADDRESS_FIELDSET, __("Adresa", "ZZZ_DOMAIN"));
         $fieldset->setPostPrefix(self::ADDRESS_FIELDSET);
 
-        $fieldset->addText(self::ADDRESS_TITLE, __("Titulek:", ZZZ_DOMAIN));
-        $fieldset->addText(self::ADDRESS_STREET, __("Ulice:", ZZZ_DOMAIN));
-        $fieldset->addText(self::ADDRESS_CITY, __("Město:", ZZZ_DOMAIN));
-        $fieldset->addText(self::ADDRESS_ZIP, __("PSČ:", ZZZ_DOMAIN));
+        $fieldset->addText(self::ADDRESS_TITLE, __("Titulek:", "ZZZ_DOMAIN"));
+        $fieldset->addText(self::ADDRESS_STREET, __("Ulice:", "ZZZ_DOMAIN"));
+        $fieldset->addText(self::ADDRESS_CITY, __("Město:", "ZZZ_DOMAIN"));
+        $fieldset->addText(self::ADDRESS_ZIP, __("PSČ:", "ZZZ_DOMAIN"));
 
         return $fieldset;
     }
@@ -90,14 +90,14 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
     const CONTACT_EMAIL = "kt-zzz-theme-contact-email";
 
     public static function getContactFieldset() {
-        $fieldset = new KT_Form_Fieldset(self::CONTACT_FIELDSET, __("Kontakty", ZZZ_DOMAIN));
+        $fieldset = new KT_Form_Fieldset(self::CONTACT_FIELDSET, __("Kontakty", "ZZZ_DOMAIN"));
         $fieldset->setPostPrefix(self::CONTACT_FIELDSET);
 
-        $fieldset->addText(self::CONTACT_PHONE, __("Telefon:", ZZZ_DOMAIN));
-        $fieldset->addText(self::CONTACT_MOBILE, __("Mobil:", ZZZ_DOMAIN));
-        $fieldset->addText(self::CONTACT_EMAIL, __("E-mail:", ZZZ_DOMAIN))
+        $fieldset->addText(self::CONTACT_PHONE, __("Telefon:", "ZZZ_DOMAIN"));
+        $fieldset->addText(self::CONTACT_MOBILE, __("Mobil:", "ZZZ_DOMAIN"));
+        $fieldset->addText(self::CONTACT_EMAIL, __("E-mail:", "ZZZ_DOMAIN"))
                 ->setInputType(KT_Text_Field::INPUT_EMAIL)
-                ->addRule(KT_Field_Validator::EMAIL, __("E-mail musí být ve správném tvaru", ZZZ_DOMAIN));
+                ->addRule(KT_Field_Validator::EMAIL, __("E-mail musí být ve správném tvaru", "ZZZ_DOMAIN"));
 
         return $fieldset;
     }
@@ -111,16 +111,16 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
     const SOCIAL_YOUTUBE = "kt-zzz-theme-social-youtube";
 
     public static function getSocialFieldset() {
-        $fieldset = new KT_Form_Fieldset(self::SOCIAL_FIELDSET, __("Sociální sítě", ZZZ_DOMAIN));
+        $fieldset = new KT_Form_Fieldset(self::SOCIAL_FIELDSET, __("Sociální sítě", "ZZZ_DOMAIN"));
         $fieldset->setPostPrefix(self::SOCIAL_FIELDSET);
 
-        $fieldset->addText(self::SOCIAL_FACEBOOK, __("Facebook:", ZZZ_DOMAIN))
+        $fieldset->addText(self::SOCIAL_FACEBOOK, __("Facebook:", "ZZZ_DOMAIN"))
                 ->setInputType(KT_Text_Field::INPUT_URL);
-        $fieldset->addText(self::SOCIAL_TWITTER, __("Twitter", ZZZ_DOMAIN))
+        $fieldset->addText(self::SOCIAL_TWITTER, __("Twitter", "ZZZ_DOMAIN"))
                 ->setInputType(KT_Text_Field::INPUT_URL);
-        $fieldset->addText(self::SOCIAL_GOOGLE_PLUS, __("Google+:", ZZZ_DOMAIN))
+        $fieldset->addText(self::SOCIAL_GOOGLE_PLUS, __("Google+:", "ZZZ_DOMAIN"))
                 ->setInputType(KT_Text_Field::INPUT_URL);
-        $fieldset->addText(self::SOCIAL_YOUTUBE, __("YouTube:", ZZZ_DOMAIN))
+        $fieldset->addText(self::SOCIAL_YOUTUBE, __("YouTube:", "ZZZ_DOMAIN"))
                 ->setInputType(KT_Text_Field::INPUT_URL);
 
         return $fieldset;

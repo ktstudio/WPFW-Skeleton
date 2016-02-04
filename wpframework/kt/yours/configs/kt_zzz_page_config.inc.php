@@ -33,7 +33,7 @@ class KT_ZZZ_Page_Config implements KT_Configable {
     const PARAMS_FIELDSET = "kt-zzz-page-params";
 
     public static function getParamsFieldset() {
-        $fieldset = new KT_Form_Fieldset(self::PARAMS_FIELDSET, __("Parametry", ZZZ_DOMAIN));
+        $fieldset = new KT_Form_Fieldset(self::PARAMS_FIELDSET, __("Parametry", "ZZZ_DOMAIN"));
         $fieldset->setPostPrefix(self::PARAMS_FIELDSET);
 
         // TODO

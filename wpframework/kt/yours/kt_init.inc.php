@@ -2,8 +2,6 @@
 
 // --- konstanty ---------------------------
 
-define("ZZZ_DOMAIN", "zzz");
-
 define("KT_ZZZ_IMAGE_SIZE_SLIDER", "kt-zzz-image-size-slider");
 define("KT_ZZZ_IMAGE_SIZE_REFERENCE_GALLERY", "kt-zzz-image-size-reference-gallery");
 

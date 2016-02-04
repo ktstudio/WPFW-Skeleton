@@ -138,19 +138,19 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
     }
 
     public function theSocialFacebook() {
-        $this->theSocialListItem($this->getSocialFacebook(), __("Facebook", ZZZ_DOMAIN), "facebook");
+        $this->theSocialListItem($this->getSocialFacebook(), __("Facebook", "ZZZ_DOMAIN"), "facebook");
     }
 
     public function theSocialTwitter() {
-        $this->theSocialListItem($this->getSocialTwitter(), __("Twitter", ZZZ_DOMAIN), "twitter");
+        $this->theSocialListItem($this->getSocialTwitter(), __("Twitter", "ZZZ_DOMAIN"), "twitter");
     }
 
     public function theSocialGooglePlus() {
-        $this->theSocialListItem($this->getSocialGooglePlus(), __("Google+", ZZZ_DOMAIN), "google");
+        $this->theSocialListItem($this->getSocialGooglePlus(), __("Google+", "ZZZ_DOMAIN"), "google");
     }
 
     public function theSocialYouTube() {
-        $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", ZZZ_DOMAIN), "youtube");
+        $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", "ZZZ_DOMAIN"), "youtube");
     }
 
     // --- neveřejné metody ------------------------

@@ -20,12 +20,12 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                        <span class="sr-only"><?php _e("Menu", ZZZ_DOMAIN); ?></span>
+                        <span class="sr-only"><?php _e("Menu", "ZZZ_DOMAIN"); ?></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a href="<?php echo get_home_url(); ?>" title="<?php _e("WP Framework", ZZZ_DOMAIN); ?>" class="navbar-brand"><?php _e("WP Framework", ZZZ_DOMAIN); ?></a>
+                    <a href="<?php echo get_home_url(); ?>" title="<?php _e("WP Framework", "ZZZ_DOMAIN"); ?>" class="navbar-brand"><?php _e("WP Framework", "ZZZ_DOMAIN"); ?></a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">

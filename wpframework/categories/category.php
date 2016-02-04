@@ -26,7 +26,7 @@ get_header();
             } else {
                 ?> 
                 <div class="row">
-                    <p><?php _e("K dispozici nejsou žádné příspěvky...", ZZZ_DOMAIN); ?></p>
+                    <p><?php _e("K dispozici nejsou žádné příspěvky...", "ZZZ_DOMAIN"); ?></p>
                 </div>
                 <?php
             }

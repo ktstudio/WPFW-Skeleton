@@ -43,14 +43,14 @@ class KT_ZZZ_Reference_Presenter extends KT_WP_Post_Base_Presenter {
 
     public function renderParamDateCreation() {
         if ($this->getModel()->isParamDateCreation()) {
-            $label = __("Datum:", ZZZ_DOMAIN);
+            $label = __("Datum:", "ZZZ_DOMAIN");
             echo "<p>$label <span>{$this->getModel()->getParamDateCreation()}</span></p>";
         }
     }
 
     public function renderParamClientName() {
         if ($this->getModel()->isParamClientName()) {
-            $label = __("Klient:", ZZZ_DOMAIN);
+            $label = __("Klient:", "ZZZ_DOMAIN");
             echo "<p>$label <span>{$this->getModel()->getParamClientName()}</span></p>";
         }
     }

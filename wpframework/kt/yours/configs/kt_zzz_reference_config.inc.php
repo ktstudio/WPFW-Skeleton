@@ -36,17 +36,17 @@ class KT_ZZZ_Reference_Config implements KT_Configable {
     const PARAMS_TYPES = "kt-zzz-reference-params-types";
 
     public static function getParamsFieldset() {
-        $fieldset = new KT_Form_Fieldset(self::PARAMS_FIELDSET, __("Parametry", ZZZ_DOMAIN));
+        $fieldset = new KT_Form_Fieldset(self::PARAMS_FIELDSET, __("Parametry", "ZZZ_DOMAIN"));
         $fieldset->setPostPrefix(self::PARAMS_FIELDSET);
 
         $referenceTypes = new KT_ZZZ_Reference_Type_Enum();
         $referenceOptions = KT::arrayRemoveByKey($referenceTypes->getTranslates(), KT_ZZZ_Reference_Type_Enum::NONE);
 
-        $fieldset->addText(self::PARAMS_DATE, __("Datum:", ZZZ_DOMAIN));
+        $fieldset->addText(self::PARAMS_DATE, __("Datum:", "ZZZ_DOMAIN"));
 
-        $fieldset->addText(self::PARAMS_CLIENT, __("Klient:", ZZZ_DOMAIN));
+        $fieldset->addText(self::PARAMS_CLIENT, __("Klient:", "ZZZ_DOMAIN"));
 
-        $fieldset->addCheckbox(self::PARAMS_TYPES, __("Typy:", ZZZ_DOMAIN))
+        $fieldset->addCheckbox(self::PARAMS_TYPES, __("Typy:", "ZZZ_DOMAIN"))
                 ->setOptionsData($referenceOptions);
 
         return $fieldset;
