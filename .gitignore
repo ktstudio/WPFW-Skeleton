@@ -1,3 +1,4 @@
-/nbproject/
-/wpframework/kt/*
-!/wpframework/kt/yours/
+.idea/
+nbproject/
+wpframework/kt/*
+!wpframework/kt/yours/
