@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Model pro obsluhu, resp. výpis konkurečních výhod
+ * Presenter pro obsluhu, resp. výpis konkurečních výhod
  *
  * @author Martin Hlaváč
  * @link http://www.ktstudio.cz
@@ -19,10 +19,11 @@ class KT_ZZZ_Competitive_Advantages_Presenter extends KT_Presenter_Base {
 
     /** @return array */
     public function getItems() {
-        if (KT::issetAndNotEmpty($this->items)) {
+        if (isset($this->items)) {
             return $this->items;
         }
-        return $this->initItems();
+        $this->initItems();
+        return $this->items;
     }
 
     /** @return array */
@@ -30,11 +31,8 @@ class KT_ZZZ_Competitive_Advantages_Presenter extends KT_Presenter_Base {
         if (isset($this->count)) {
             return $this->count;
         }
-        $items = $this->getItems();
-        if (KT::arrayIssetAndNotEmpty($items)) {
-            return $this->count = count($items);
-        }
-        return $this->count = 0;
+        $this->initItems();
+        return $this->count;
     }
 
     // --- veřejné metody ------------------------
@@ -73,7 +71,8 @@ class KT_ZZZ_Competitive_Advantages_Presenter extends KT_Presenter_Base {
                 $items[$item->getId()] = $item;
             }
         }
-        return $this->items = $items;
+        $this->items = $items;
+        $this->count = count($items);
     }
 
 }

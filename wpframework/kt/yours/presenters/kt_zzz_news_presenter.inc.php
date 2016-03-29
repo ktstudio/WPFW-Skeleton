@@ -1,6 +1,14 @@
 <?php
 
+/**
+ * Presenter pro obsluhu, resp. výpis novinek
+ *
+ * @author Martin Hlaváč
+ * @link http://www.ktstudio.cz
+ */
 class KT_ZZZ_News_Presenter extends KT_Presenter_Base {
+
+    const DEFAULT_COUNT = 4;
 
     private $query;
 
@@ -39,8 +47,7 @@ class KT_ZZZ_News_Presenter extends KT_Presenter_Base {
         $args = array(
             "post_type" => KT_WP_POST_KEY,
             "post_status" => "publish",
-            "post_parent" => 0,
-            "posts_per_page" => 4,
+            "posts_per_page" => self::DEFAULT_COUNT,
             "orderby" => "date",
             "order" => KT_Repository::ORDER_DESC,
             "cat" => KT_ZZZ::getThemeModel()->getCategoryNewsId(),

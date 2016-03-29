@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Model pro obsluhu, resp. výpis sidebaru
+ * Presenter pro obsluhu, resp. výpis sidebaru
  *
  * @author Martin Hlaváč
  * @link http://www.ktstudio.cz

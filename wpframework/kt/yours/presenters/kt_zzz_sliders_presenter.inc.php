@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Model pro obsluhu, resp. výpis sliderů
+ * Presenter pro obsluhu, resp. výpis sliderů
  *
  * @author Martin Hlaváč
  * @link http://www.ktstudio.cz
@@ -21,10 +21,11 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
 
     /** @return array */
     public function getPosts() {
-        if (KT::issetAndNotEmpty($this->posts)) {
+        if (isset($this->posts)) {
             return $this->posts;
         }
-        return $this->initPosts();
+        $this->initPosts();
+        return $this->posts;
     }
 
     /** @return int */
@@ -32,11 +33,8 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
         if (isset($this->count)) {
             return $this->count;
         }
-        $posts = $this->getPosts();
-        if (KT::issetAndNotEmpty($posts)) {
-            return $this->count = count($posts);
-        }
-        return $this->count = 0;
+        $this->initPosts();
+        return $this->count;
     }
 
     // --- veřejné metody ------------------------
@@ -80,16 +78,19 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
         $args = array(
             "post_type" => KT_ZZZ_SLIDER_KEY,
             "post_status" => "publish",
-            "post_parent" => 0,
             "posts_per_page" => self::DEFAULT_COUNT,
             "orderby" => "menu_order title",
-            "order" => "ASC",
+            "order" => KT_Repository::ORDER_ASC,
         );
-        $query = new WP_Query($args);
-        if ($query->have_posts()) {
-            return $this->posts = $query->get_posts();
+        $query = new WP_Query();
+        $posts = $query->query($args);
+        if (KT::arrayIssetAndNotEmpty($posts)) {
+            $this->posts = $posts;
+            $this->count = count($posts);
+        } else {
+            $this->posts = array();
+            $this->count = 0;
         }
-        return $this->posts = array();
     }
 
 }

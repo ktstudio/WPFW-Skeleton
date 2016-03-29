@@ -7,17 +7,19 @@ add_action("init", "kt_zzz_register_reference_post_type");
 function kt_zzz_register_reference_post_type() {
     $labels = array(
         "name" => __("Reference", "ZZZ_DOMAIN"),
+        "menu_name" => __("Reference", "ZZZ_DOMAIN"),
+        "name_admin_bar" => __("Reference", "ZZZ_DOMAIN"),
         "singular_name" => __("Reference", "ZZZ_DOMAIN"),
         "add_new" => __("Přidat referenci", "ZZZ_DOMAIN"),
         "add_new_item" => __("Přidat novou referenci", "ZZZ_DOMAIN"),
-        "edit_item" => __("Změnit referenci", "ZZZ_DOMAIN"),
         "new_item" => __("Nová reference", "ZZZ_DOMAIN"),
-        "view_item" => __("Zobrazit reference", "ZZZ_DOMAIN"),
+        "edit_item" => __("Změnit referenci", "ZZZ_DOMAIN"),
+        "view_item" => __("Zobrazit referenci", "ZZZ_DOMAIN"),
         "all_items" => __("Všechny reference", "ZZZ_DOMAIN"),
         "search_items" => __("Hledat reference", "ZZZ_DOMAIN"),
-        "not_found" => __("Žádné reference nenalezeny", "ZZZ_DOMAIN"),
-        "not_found_in_trash" => __("Žádné reference v koši", "ZZZ_DOMAIN"),
-        "menu_name" => __("Reference", "ZZZ_DOMAIN"),
+        "parent_item_colon" => __("Rodičovské reference:", "ZZZ_DOMAIN"),
+        "not_found" => __("Žádné reference nenalezeny.", "ZZZ_DOMAIN"),
+        "not_found_in_trash" => __("Žádné reference v koši.", "ZZZ_DOMAIN")
     );
     $args = array(
         "labels" => $labels,

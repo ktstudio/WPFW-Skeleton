@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Model pro obsluhu reference
+ * Presenter pro obsluhu reference
  *
  * @author Martin Hlaváč
  * @link http://www.ktstudio.cz
