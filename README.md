@@ -28,11 +28,11 @@ Základní kostra pro vlastní WordPress šablony založené na WP Frameworku
 
 ---
 
-**) Vzorová šablona počítá s existencí distribuční verze UI FW **[BootStrap](http://getbootstrap.com/getting-started/#download)** v rámci adresáře kt/yours/...*
+**) Vzorová šablona počítá s existencí distribuční verze UI FW [BootStrap](http://getbootstrap.com/getting-started/#download) v rámci adresáře kt/yours/...*
 
 ---
 
-**) Při kopírování WP Frameworku pozor na přepsání souboru **kt/yours/kt_init.inc.php**, platí ten ze skeletonu...*
+**) Při kopírování WP Frameworku POZOR na přepsání souboru kt/yours/kt_init.inc.php, platí ten ze skeletonu...*
 
 ---
 
