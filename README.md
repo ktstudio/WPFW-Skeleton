@@ -22,11 +22,21 @@ Základní kostra pro vlastní WordPress šablony založené na WP Frameworku
 - Konkurenční výhody (jako CRUD + config, model, presenter, admin page, metaboxy, partial + SQL skript) 
 - Příprava pro potencionální rozšíření příspěvků a stránek 
 
+---
+
 **) Všechny součásti jsou připravené pouze jednoduše pro další vlastní použití/rozšíření nebo odstranění dle libosti...*
 
 ---
 
-**) Testováno na verzi [WP Frameworku 1.6](https://github.com/ktstudio/WP-Framework/releases)...*
+**) Vzorová šablona počítá s existencí distribuční verze UI FW **[BootStrap](http://getbootstrap.com/getting-started/#download)** v rámci adresáře kt/yours/...*
+
+---
+
+**) Při kopírování WP Frameworku pozor na přepsání souboru **kt/yours/kt_init.inc.php**, platí ten ze skeletonu...*
+
+---
+
+**) Testováno na verzi [WP Frameworku 1.7](https://github.com/ktstudio/WP-Framework/releases)...*
 
 ---
 
