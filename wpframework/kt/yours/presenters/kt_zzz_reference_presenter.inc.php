@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Presenter pro obsluhu reference
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_Reference_Presenter extends KT_WP_Post_Base_Presenter {
 
     public function __construct(KT_ZZZ_Reference_Model $model) {

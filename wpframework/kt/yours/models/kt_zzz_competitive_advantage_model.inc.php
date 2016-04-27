@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Model pro definici konkurenční výhody
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_Competitive_Advantage_Model extends KT_Catalog_Model_Base {
 
     const TABLE = "kt_zzz_competitive_advantages";

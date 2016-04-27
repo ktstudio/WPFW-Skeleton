@@ -11,7 +11,7 @@ get_header();
                     <h1><?php echo $pageModel->getTitle(); ?></h1>
                 </header>
                 <?php
-                if ($pageModel->hasExcrept()) {
+                if ($pageModel->hasExcerpt()) {
                     echo $pageModel->getExcerpt();
                 }
                 echo $pageModel->getContent();

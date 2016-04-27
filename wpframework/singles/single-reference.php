@@ -10,7 +10,7 @@ get_header();
                 <h1><?php echo $referenceModel->getTitle(); ?></h1>
             </header>
             <?php
-            if ($referenceModel->hasExcrept()) {
+            if ($referenceModel->hasExcerpt()) {
                 echo $referenceModel->getExcerpt();
             }
             ?>

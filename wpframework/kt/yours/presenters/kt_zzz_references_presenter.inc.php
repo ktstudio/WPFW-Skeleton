@@ -1,16 +1,11 @@
 <?php
 
-/**
- * Presenter pro obsluhu, resp. výpis referencí
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_References_Presenter extends KT_Presenter_Base {
 
     const DEFAULT_COUNT = 12;
 
-    private $query;
+    private $posts;
+    private $postsCount;
 
     public function __construct() {
         parent::__construct();
@@ -18,46 +13,60 @@ class KT_ZZZ_References_Presenter extends KT_Presenter_Base {
 
     // --- getry & setry ------------------------------
 
-    /**
-     * @return WP_Query
-     */
-    public function getQuery() {
-        if (KT::issetAndNotEmpty($this->query)) {
-            return $this->query;
+    /** @return array */
+    public function getPosts() {
+        if (KT::issetAndNotEmpty($this->posts)) {
+            return $this->posts;
         }
-        return $this->initQuery();
+        $this->initPosts();
+        return $this->posts;
+    }
+
+    /** @return int */
+    public function getPostsCount() {
+        if (KT::issetAndNotEmpty($this->postsCount)) {
+            return $this->postsCount;
+        }
+        $this->initPosts();
+        return $this->postsCount;
     }
 
     // --- veřejné metody ------------------------------
 
-    /**
-     * @return bool
-     */
-    public function isQuery() {
-        $query = $this->getQuery();
-        return KT::issetAndNotEmpty($query) && $query->have_posts();
+    /** @return bool */
+    public function isPosts() {
+        return $this->getPostsCount() > 0;
     }
 
-    public function theQuery() {
-        if ($this->isQuery()) {
+    public function thePosts() {
+        if ($this->isPosts()) {
             $clearfixes = array(
                 2 => "<div class=\"visible-sm-block clearfix\"></div>", // za každým 2. záznamem
                 3 => "<div class=\"visible-lg-block visible-md-block clearfix\"></div>" // za každým 3. záznamem
             );
-            self::theQueryLoops($this->getQuery(), KT_ZZZ_REFERENCE_KEY, $clearfixes);
+            self::theItemsLoops($this->getPosts(), KT_ZZZ_REFERENCE_KEY, null, null, $clearfixes);
         }
     }
 
     // --- neveřejné metody ------------------------------
 
-    private function initQuery() {
-        return $this->query = new WP_Query(array(
+    private function initPosts() {
+        $args = array(
             "post_type" => KT_ZZZ_REFERENCE_KEY,
             "post_status" => "publish",
             "posts_per_page" => self::DEFAULT_COUNT,
             "orderby" => "menu_order title",
             "order" => KT_Repository::ORDER_ASC,
-        ));
+        );
+        $query = new WP_Query();
+        $posts = $query->query($args);
+        if (KT::arrayIssetAndNotEmpty($posts)) {
+            $this->posts = $posts;
+            $this->postsCount = count($posts);
+        } else {
+            $this->posts = array();
+            $this->postsCount = 0;
+        }
     }
 
 }

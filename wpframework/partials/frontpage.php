@@ -9,7 +9,7 @@ if (KT::issetAndNotEmpty($post)) {
             <h1><?php echo $frontPageModel->getTitle(); ?></h1>
         </header>
         <?php
-        if ($frontPageModel->hasExcrept()) {
+        if ($frontPageModel->hasExcerpt()) {
             echo $frontPageModel->getExcerpt();
         }
         echo $frontPageModel->getContent();

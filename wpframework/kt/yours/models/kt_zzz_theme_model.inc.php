@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Model pro definici nastavení šablony
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
 
     private $categoryNewsPermalink;

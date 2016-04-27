@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Základní (formulářové) konfigurace pro jednotlivé konkureční výhody
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_Competitive_Advantage_Config {
 
     const FORM_PREFIX = "kt-zzz-competitive-advantage";

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Presenter pro obsluhu, resp. výpis sidebaru
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
 
     private $currentSidebarKey;

@@ -1,17 +1,11 @@
 <?php
 
-/**
- * Presenter pro obsluhu, resp. výpis sliderů
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
 
     const DEFAULT_COUNT = 3;
 
     private $posts = null;
-    private $count;
+    private $postsCount;
 
     public function __construct() {
         parent::__construct();
@@ -29,18 +23,19 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
     }
 
     /** @return int */
-    public function getCount() {
-        if (isset($this->count)) {
-            return $this->count;
+    public function getPostsCount() {
+        if (isset($this->postsCount)) {
+            return $this->postsCount;
         }
         $this->initPosts();
-        return $this->count;
+        return $this->postsCount;
     }
 
     // --- veřejné metody ------------------------
 
+    /** @return boolean */
     public function isPosts() {
-        return $this->getCount() > 0;
+        return $this->getPostsCount() > 0;
     }
 
     public function theIndicators() {
@@ -86,10 +81,10 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
         $posts = $query->query($args);
         if (KT::arrayIssetAndNotEmpty($posts)) {
             $this->posts = $posts;
-            $this->count = count($posts);
+            $this->postsCount = count($posts);
         } else {
             $this->posts = array();
-            $this->count = 0;
+            $this->postsCount = 0;
         }
     }
 

@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Presenter pro obsluhu příspěvku
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_Post_Presenter extends KT_WP_Post_Base_Presenter {
 
     function __construct(KT_ZZZ_Post_Model $model) {

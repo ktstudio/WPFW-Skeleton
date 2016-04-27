@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Presenter pro obsluhu, resp. výpis konkurečních výhod
- *
- * @author Martin Hlaváč
- * @link http://www.ktstudio.cz
- */
 class KT_ZZZ_Competitive_Advantages_Presenter extends KT_Presenter_Base {
 
     private $items = null;

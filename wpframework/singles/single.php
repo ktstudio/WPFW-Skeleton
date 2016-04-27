@@ -11,7 +11,7 @@ get_header();
                     <h1><?php echo $postModel->getTitle(); ?></h1>
                 </header>
                 <?php
-                if ($postModel->hasExcrept()) {
+                if ($postModel->hasExcerpt()) {
                     echo $postModel->getExcerpt();
                 }
                 echo $postModel->getContent();
