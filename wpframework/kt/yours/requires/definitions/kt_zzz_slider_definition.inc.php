@@ -7,18 +7,18 @@ function kt_zzz_register_slider_post_type() {
     // --- post type ------------------------
 
     $labels = array(
-        "name" => __("Slidy", "ZZZ_DOMAIN"),
-        "singular_name" => __("Slide", "ZZZ_DOMAIN"),
-        "add_new" => __("Přidat slide", "ZZZ_DOMAIN"),
-        "add_new_item" => __("Přidat nový slide", "ZZZ_DOMAIN"),
-        "edit_item" => __("Změnit slide", "ZZZ_DOMAIN"),
-        "new_item" => __("Nový slide", "ZZZ_DOMAIN"),
-        "view_item" => __("Zobrazit slide", "ZZZ_DOMAIN"),
-        "all_items" => __("Všechny slidy", "ZZZ_DOMAIN"),
-        "search_items" => __("Hledat slidy", "ZZZ_DOMAIN"),
-        "not_found" => __("Žádné slidy nenalezeny", "ZZZ_DOMAIN"),
-        "not_found_in_trash" => __("Žádné slidy v koši", "ZZZ_DOMAIN"),
-        "menu_name" => __("Slidy", "ZZZ_DOMAIN"),
+        "name" => __("Slidy", "ZZZ_ADMIN_DOMAIN"),
+        "singular_name" => __("Slide", "ZZZ_ADMIN_DOMAIN"),
+        "add_new" => __("Přidat slide", "ZZZ_ADMIN_DOMAIN"),
+        "add_new_item" => __("Přidat nový slide", "ZZZ_ADMIN_DOMAIN"),
+        "edit_item" => __("Změnit slide", "ZZZ_ADMIN_DOMAIN"),
+        "new_item" => __("Nový slide", "ZZZ_ADMIN_DOMAIN"),
+        "view_item" => __("Zobrazit slide", "ZZZ_ADMIN_DOMAIN"),
+        "all_items" => __("Všechny slidy", "ZZZ_ADMIN_DOMAIN"),
+        "search_items" => __("Hledat slidy", "ZZZ_ADMIN_DOMAIN"),
+        "not_found" => __("Žádné slidy nenalezeny", "ZZZ_ADMIN_DOMAIN"),
+        "not_found_in_trash" => __("Žádné slidy v koši", "ZZZ_ADMIN_DOMAIN"),
+        "menu_name" => __("Slidy", "ZZZ_ADMIN_DOMAIN"),
     );
 
     $args = array(
@@ -50,13 +50,13 @@ function kt_zzz_register_slider_post_type() {
 if (is_admin()) { // vlastní sloupce v administraci
     $sliderColumns = new KT_Admin_Columns(KT_ZZZ_SLIDER_SLUG);
     $sliderColumns->addColumn("post_thumbnail", array(
-        KT_Admin_Columns::LABEL_PARAM_KEY => __("Foto", "ZZZ_DOMAIN"),
+        KT_Admin_Columns::LABEL_PARAM_KEY => __("Foto", "ZZZ_ADMIN_DOMAIN"),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::THUMBNAIL_TYPE_KEY,
         KT_Admin_Columns::INDEX_PARAM_KEY => 0,
             )
     );
     $sliderColumns->addColumn("menu_order", array(
-        KT_Admin_Columns::LABEL_PARAM_KEY => __("Pořadí", "ZZZ_DOMAIN"),
+        KT_Admin_Columns::LABEL_PARAM_KEY => __("Pořadí", "ZZZ_ADMIN_DOMAIN"),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::POST_PROPERTY_TYPE_KEY,
         KT_Admin_Columns::PROPERTY_PARAM_KEY => "menu_order",
         KT_Admin_Columns::SORTABLE_PARAM_KEY => true,
