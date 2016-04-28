@@ -56,8 +56,11 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
         $fieldset->setPostPrefix(self::COMPETITIVE_ADVATAGES_FIELDSET);
 
         $fieldset->addText(self::COMPETITIVE_ADVATAGES_TITLE, __("Nadpis:", "ZZZ_ADMIN_DOMAIN"));
-        $fieldset->addText(self::COMPETITIVE_ADVATAGES_MAX_COUNT, __("Max. počet:", "ZZZ_ADMIN_DOMAIN"))
-                ->setInputType(KT_Text_Field::INPUT_NUMBER);
+        $fieldset->addSlider(self::COMPETITIVE_ADVATAGES_MAX_COUNT, __("Max. počet:", "ZZZ_ADMIN_DOMAIN"))
+                ->setDefaultValue(3)
+                ->setStep(3)
+                ->setMinValue(0)
+                ->setMaxValue(12);
 
         return $fieldset;
     }
