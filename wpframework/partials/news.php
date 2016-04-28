@@ -8,7 +8,7 @@ if (KT_ZZZ::getThemeModel()->isCategoryNews()) {
             <h2><?php echo KT_ZZZ::getThemeModel()->getCategoryNewsTitle(); ?></h2>
         </header>
         <div class="row">
-            <?php $newsPresenter->theQuery(); ?>
+            <?php $newsPresenter->thePosts(); ?>
         </div>
     </section>
 

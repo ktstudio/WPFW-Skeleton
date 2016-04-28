@@ -4,7 +4,8 @@ class KT_ZZZ_News_Presenter extends KT_Presenter_Base {
 
     const DEFAULT_COUNT = 4;
 
-    private $query;
+    private $posts;
+    private $postsCount;
 
     public function __construct() {
         parent::__construct();
@@ -12,32 +13,40 @@ class KT_ZZZ_News_Presenter extends KT_Presenter_Base {
 
     // --- getry & setry ------------------------------
 
-    /**
-     * @return \WP_Query
-     */
-    public function getQuery() {
-        if (KT::issetAndNotEmpty($this->query)) {
-            return $this->query;
+    /** @return array */
+    public function getPosts() {
+        if (isset($this->posts)) {
+            return $this->posts;
         }
-        return $this->initQuery();
+        $this->initPosts();
+        return $this->posts;
+    }
+
+    /** @return int */
+    public function getPostsCount() {
+        if (isset($this->postsCount)) {
+            return $this->postsCount;
+        }
+        $this->initPosts();
+        return $this->postsCount;
     }
 
     // --- veřejné metody ------------------------------
 
-    public function isQuery() {
-        $query = $this->getQuery();
-        return KT::issetAndNotEmpty($query) && $query->have_posts();
+    /** @return bool */
+    public function isPosts() {
+        return $this->getPostsCount() > 0;
     }
 
-    public function theQuery() {
-        if ($this->isQuery()) {
-            self::theQueryLoops($this->getQuery(), KT_WP_POST_KEY);
+    public function thePosts() {
+        if ($this->isPosts()) {
+            self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY);
         }
     }
 
     // --- neveřejné metody ------------------------------
 
-    private function initQuery() {
+    private function initPosts() {
         $args = array(
             "post_type" => KT_WP_POST_KEY,
             "post_status" => "publish",
@@ -46,7 +55,15 @@ class KT_ZZZ_News_Presenter extends KT_Presenter_Base {
             "order" => KT_Repository::ORDER_DESC,
             "cat" => KT_ZZZ::getThemeModel()->getCategoryNewsId(),
         );
-        return $this->query = new WP_Query($args);
+        $query = new WP_Query();
+        $posts = $query->query($args);
+        if (KT::arrayIssetAndNotEmpty($posts)) {
+            $this->posts = $posts;
+            $this->postsCount = count($posts);
+        } else {
+            $this->posts = array();
+            $this->postsCount = 0;
+        }
     }
 
 }

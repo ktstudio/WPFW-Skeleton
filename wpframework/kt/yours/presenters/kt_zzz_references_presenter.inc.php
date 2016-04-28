@@ -15,7 +15,7 @@ class KT_ZZZ_References_Presenter extends KT_Presenter_Base {
 
     /** @return array */
     public function getPosts() {
-        if (KT::issetAndNotEmpty($this->posts)) {
+        if (isset($this->posts)) {
             return $this->posts;
         }
         $this->initPosts();
@@ -24,7 +24,7 @@ class KT_ZZZ_References_Presenter extends KT_Presenter_Base {
 
     /** @return int */
     public function getPostsCount() {
-        if (KT::issetAndNotEmpty($this->postsCount)) {
+        if (isset($this->postsCount)) {
             return $this->postsCount;
         }
         $this->initPosts();
