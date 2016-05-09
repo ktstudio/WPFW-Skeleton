@@ -89,6 +89,10 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_YOUTUBE);
     }
 
+    public function getAnalyticsTrackingCode() {
+        return $this->getOption(KT_ZZZ_Theme_Config::ANALYTICS_TRACKING_CODE);
+    }
+
     // --- veřejné metody ---------------------------
 
     public function isCategoryNews() {
@@ -145,6 +149,10 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
 
     public function theSocialYouTube() {
         $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", "ZZZ_DOMAIN"), "youtube");
+    }
+
+    public function isAnalyticsTrackingCode() {
+        return KT::issetAndNotEmpty($this->getAnalyticsTrackingCode());
     }
 
     // --- neveřejné metody ------------------------

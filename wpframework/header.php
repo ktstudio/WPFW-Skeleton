@@ -14,6 +14,11 @@
     <![endif]-->
 </head>
 <body>
+    <?php
+    if (KT_ZZZ::getThemeModel()->isAnalyticsTrackingCode()) {
+        echo KT_ZZZ::getThemeModel()->getAnalyticsTrackingCode();
+    }
+    ?>
 
     <header id="header" class="container">
         <nav class="navbar navbar-default">

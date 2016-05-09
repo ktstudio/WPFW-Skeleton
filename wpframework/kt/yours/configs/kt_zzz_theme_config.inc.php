@@ -13,6 +13,7 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
             self::ADDRESS_FIELDSET => self::getAddressFieldset(),
             self::CONTACT_FIELDSET => self::getContactFieldset(),
             self::SOCIAL_FIELDSET => self::getSocialFieldset(),
+            self::ANALYTICS_FIELDSET => self::getAnalyticsFieldset(),
         );
     }
 
@@ -21,6 +22,7 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
             self::ADDRESS_FIELDSET => self::getAddressFieldset(),
             self::CONTACT_FIELDSET => self::getContactFieldset(),
             self::SOCIAL_FIELDSET => self::getSocialFieldset(),
+            self::ANALYTICS_FIELDSET => self::getAnalyticsFieldset(),
         );
     }
 
@@ -126,6 +128,21 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
         $fieldset->addText(self::SOCIAL_YOUTUBE, __("YouTube:", "ZZZ_ADMIN_DOMAIN"))
                 ->setInputType(KT_Text_Field::INPUT_URL);
 
+        return $fieldset;
+    }
+
+    // --- ANALYTIKA ------------------------
+
+    const ANALYTICS_FIELDSET = "kt-zzz-theme-analytics";
+    const ANALYTICS_TRACKING_CODE = "kt-zzz-theme-analytics-tracking-code";
+
+    public static function getAnalyticsFieldset() {
+        $fieldset = new KT_Form_Fieldset(self::ANALYTICS_FIELDSET, __("Analytika", "ZZZ_ADMIN_DOMAIN"));
+        $fieldset->setPostPrefix(self::ANALYTICS_FIELDSET);
+
+        $fieldset->addTextarea(self::ANALYTICS_TRACKING_CODE, __("Měřící kód:", "ZZZ_ADMIN_DOMAIN"))
+                ->setToolTip(__("Měřící kód(y) Google Tag Manager nebo Analytics, popř. Seznam", "ZZZ_ADMIN_DOMAIN"))
+                ->setFilterSanitize(FILTER_DEFAULT);
         return $fieldset;
     }
 
