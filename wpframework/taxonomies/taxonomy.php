@@ -1,6 +1,5 @@
 <?php
-$termPresenter = new KT_WP_Term_Base_Presenter();
-$termModel = $termPresenter->getModel();
+$termPresenter = new KT_WP_Term_Base_Presenter($termModel = $termPresenter->getModel());
 get_header();
 ?>
 
