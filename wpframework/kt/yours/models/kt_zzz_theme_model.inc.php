@@ -16,25 +16,23 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
     }
 
     public function getCategoryNewsPermalink() {
-        if (KT::issetAndNotEmpty($this->categoryNewsPermalink)) {
+        if (isset($this->categoryNewsPermalink)) {
             return $this->categoryNewsPermalink;
         }
-        $categoryNewsId = $this->getCategoryNewsId();
-        if (KT::isIdFormat($categoryNewsId)) {
-            return $this->categoryNewsPermalink = get_category_link($categoryNewsId);
+        if ($this->isCategoryNewsId()) {
+            return $this->categoryNewsPermalink = get_category_link($this->getCategoryNewsId());
         }
-        return $this->categoryNewsPermalink = null;
+        return $this->categoryNewsPermalink = "";
     }
 
     public function getCategoryNewsTitle() {
-        if (KT::issetAndNotEmpty($this->categoryNewsTitle)) {
+        if (isset($this->categoryNewsTitle)) {
             return $this->categoryNewsTitle;
         }
-        $categoryNewsId = $this->getCategoryNewsId();
-        if (KT::isIdFormat($categoryNewsId)) {
-            return $this->categoryNewsTitle = get_cat_name($categoryNewsId);
+        if ($this->isCategoryNewsId()) {
+            return $this->categoryNewsTitle = get_cat_name($this->getCategoryNewsId());
         }
-        return $this->categoryNewsTitle = null;
+        return $this->categoryNewsTitle = "";
     }
 
     public function getCompetitiveAdvantagesTitle() {
@@ -97,6 +95,14 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
 
     public function isCategoryNews() {
         return KT::isIdFormat($this->getCategoryNewsId());
+    }
+
+    public function isCategoryNewsPermalink() {
+        return KT::issetAndNotEmpty($this->getCategoryNewsId());
+    }
+
+    public function isCategoryNewsTitle() {
+        return KT::issetAndNotEmpty($this->getCategoryNewsId());
     }
 
     public function isCompetitiveAdvantagesTitle() {

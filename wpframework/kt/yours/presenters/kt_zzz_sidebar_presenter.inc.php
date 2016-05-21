@@ -34,9 +34,6 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
 
     // --- veřejné metody ------------------------------
 
-    /**
-     * Vykreslení sidebaru
-     */
     public function render() {
         if (is_active_sidebar($this->getCurrentSidebarKey())) {
             dynamic_sidebar($this->getCurrentSidebarKey());
@@ -45,11 +42,7 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
 
     // --- neveřejné metody ------------------------------
 
-    /**
-     * Provede inicializaci aktuálního sidebaru 
-     * 
-     * @return \KT_ZZZ_Sidebar_Presenter
-     */
+    /** @return KT_ZZZ_Sidebar_Presenter */
     private function initCurrentSidebar() {
         global $wp_registered_sidebars;
         $sidebarKey = KT_ZZZ_SIDEBAR_DEFAULT;
