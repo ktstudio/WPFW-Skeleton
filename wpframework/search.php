@@ -10,9 +10,12 @@
             <?php if (have_posts()) { ?>
                 <div class="row">
                     <?php
-                    while (have_posts()) : the_post();
-                        get_template_part("loops/loop", KT_WP_POST_KEY);
-                    endwhile;
+                    global $wp_query;
+                    $clearfixes = array(
+                        2 => "<div class=\"visible-sm-block clearfix\"></div>", // za každým 2. záznamem
+                        4 => "<div class=\"visible-lg-block visible-md-block clearfix\"></div>" // za každým 4. záznamem
+                    );
+                    KT_Presenter_Base::theQueryLoops($wp_query, "search", $clearfixes);
                     ?>
                 </div>
                 <div id="pagination" class="pagination clearfix">
