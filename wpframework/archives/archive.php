@@ -1,6 +1,5 @@
 <?php
 $postsPresenter = new KT_ZZZ_Posts_Presenter();
-$termPresenter = new KT_WP_Term_Base_Presenter($termModel = new KT_WP_Term_Base_Model(get_queried_object()));
 get_header();
 ?>
 
@@ -8,13 +7,10 @@ get_header();
     <div class="row">
         <div class="col-md-12">
             <header>
-                <h1 class="text-center"><?php echo $termModel->getName(); ?></h1>
-                <?php if ($termModel->isDescription()) { ?>
-                    <h2 class="text-center hidden-xs"><?php echo $termModel->getDescription(); ?></h2>
-                <?php } ?>
+                <h1><?php post_type_archive_title(); ?></h1>
             </header>
             <?php if ($postsPresenter->isResults()) { ?>
-                <div id="posts-container" class="row" data-offset="<?php echo $postsPresenter->getInitialOffset(); ?>">
+                <div id="posts-container" class="row" data-offset="<?php echo $postsPresenter->getInitialOffset(); ?>" data-category-id="<?php echo $postsPresenter->getCategoryId(); ?>">
                     <?php $postsPresenter->theResults(); ?>
                 </div>
                 <?php if ($postsPresenter->getCount() == $postsPresenter->getMaxCount()) { ?>

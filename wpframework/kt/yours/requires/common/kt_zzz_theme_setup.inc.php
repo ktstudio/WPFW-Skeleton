@@ -4,13 +4,16 @@ $config = new KT_WP_Configurator();
 
 $config->setDisplayLogo()
         ->setPostArchiveMenu()
-        ->setAllowCookieStatement();
+        ->setAllowCookieStatement()
+        ->setAllowSession();
 
 $config->addThemeSupport(KT_WP_THEME_SUPPORT_POST_THUMBNAILS_KEY);
 
 $config->addPostTypeSupport(KT_WP_POST_TYPE_SUPPORT_EXCERPT_KEY, array(KT_WP_PAGE_KEY));
 
 $config->removePostTypeSupport(KT_WP_POST_TYPE_SUPPORT_THUMBNAIL_KEY, array(KT_WP_PAGE_KEY));
+
+$config->setPostsArchiveSlug("blog");
 
 $config->setExcerptText("...");
 
@@ -31,7 +34,8 @@ $config->metaboxRemover()
 $config->addImageSize(KT_ZZZ_IMAGE_SIZE_SLIDER, 1200, 250, true);
 $config->addImageSize(KT_ZZZ_IMAGE_SIZE_REFERENCE_GALLERY, 768, 480, true);
 
-$config->setImagesLazyLoading(true);
+$config->setImagesLazyLoading(true)
+        ->setImagesLinkClasses(true);
 
 // --- styly ---------------------------
 

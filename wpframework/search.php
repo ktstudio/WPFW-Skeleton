@@ -11,11 +11,7 @@
                 <div class="row">
                     <?php
                     global $wp_query;
-                    $clearfixes = array(
-                        2 => "<div class=\"visible-sm-block clearfix\"></div>", // za každým 2. záznamem
-                        4 => "<div class=\"visible-lg-block visible-md-block clearfix\"></div>" // za každým 4. záznamem
-                    );
-                    KT_Presenter_Base::theQueryLoops($wp_query, "search", $clearfixes);
+                    KT_Presenter_Base::theQueryLoops($wp_query, "search", KT_ZZZ_Posts_Presenter::getClearfixes());
                     ?>
                 </div>
                 <div id="pagination" class="pagination clearfix">

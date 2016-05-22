@@ -6,6 +6,40 @@ Description: Na míru pro WPFramework.cz
 Version: 1.0
 */
 
+.loadingUpper {
+    position:relative
+}
+
+.loadingUpper:before {
+    content:"";
+    width:200px;
+    height:13px;
+    position:absolute;
+    top:-20px;
+    left:50%;
+    margin-left:-100px;
+    display:block;
+    background:url("images/loadinganimation.gif") top center no-repeat
+}
+
+.loading {
+    position:relative;
+    overflow:hidden
+}
+
+loading:before {
+    content:"";
+    display:block;
+    width:20px;
+    height:20px;
+    position:absolute;
+    top:50%;
+    left:50%;
+    z-index:1;
+    background:url("images/spinner.gif") top left no-repeat;
+    margin:-10px 0 0 -10px
+}
+
 #ktCookieStatement {
     position: fixed;
     left: 0;
