@@ -6,7 +6,10 @@ get_header();
 
 <main id="category" class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-3">
+            <?php get_sidebar(); ?>
+        </div>
+        <div class="col-md-9">
             <header>
                 <h1 class="text-center"><?php echo $termModel->getName(); ?></h1>
                 <?php if ($termModel->isDescription()) { ?>
