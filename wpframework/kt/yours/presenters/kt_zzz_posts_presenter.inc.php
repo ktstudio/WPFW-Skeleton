@@ -4,8 +4,8 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
 
     const DEFAULT_COUNT = 12;
 
-    private $results;
-    private $count;
+    private $posts;
+    private $postsCount;
     private $maxCount;
     private $offset;
     private $categoryId;
@@ -21,23 +21,21 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
     // --- getry & setry ------------------------------
 
     /** @return array */
-    public function getResults() {
-        if (KT::issetAndNotEmpty($this->results)) {
-            return $this->results;
+    public function getPosts() {
+        if (KT::issetAndNotEmpty($this->posts)) {
+            return $this->posts;
         }
-        return $this->initResults();
+        $results = $this->initPosts();
+        return $this->posts;
     }
 
     /** @return int */
-    public function getCount() {
-        if (isset($this->count)) {
-            return $this->count;
+    public function getPostsCount() {
+        if (isset($this->postsCount)) {
+            return $this->postsCount;
         }
-        $results = $this->getResults();
-        if (KT::arrayIssetAndNotEmpty($results)) {
-            return $this->count = count($results);
-        }
-        return $this->count = 0;
+        $results = $this->initPosts();
+        return $this->postsCount;
     }
 
     /** @return int */
@@ -81,42 +79,42 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
     // --- veřejné metody ------------------------------
 
     /** @return boolean */
-    public function isResults() {
-        return $this->getCount() > 0;
+    public function isPosts() {
+        return $this->getPostsCount() > 0;
     }
 
-    public function theResults() {
-        if ($this->isResults()) {
-            self::theItemsLoops($this->getResults(), KT_WP_POST_KEY, null, null, self::getClearfixes());
+    public function thePosts() {
+        if ($this->isPosts()) {
+            self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY, null, null, self::getClearfixes());
         }
     }
 
-    public function theFirstResult() {
-        if ($this->isResults()) {
-            self::theItemsLoops($this->getResults(), KT_WP_POST_KEY . "-top", 1, 0, self::getClearfixes());
+    public function theFirstPost() {
+        if ($this->isPosts()) {
+            self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY . "-top", 1, 0, self::getClearfixes());
         }
     }
 
-    public function theOthersResults() {
-        if ($this->isResults()) {
-            self::theItemsLoops($this->getResults(), KT_WP_POST_KEY, ($this->getMaxCount() - 1), 1, self::getClearfixes());
+    public function theOthersPosts() {
+        if ($this->isPosts()) {
+            self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY, ($this->getMaxCount() - 1), 1, self::getClearfixes());
         }
     }
 
-    public function getResultsOutput() {
-        if ($this->isResults()) {
+    public function getPostsOutput() {
+        if ($this->isPosts()) {
             ob_start();
-            $this->theResults();
+            $this->thePosts();
             $output = ob_get_clean();
             return $output;
         } elseif ($this->getOffset() >= $this->getMaxCount()) {
             return false;
         } else {
-            return $this->getNoResultsMessage();
+            return $this->getNoPostsMessage();
         }
     }
 
-    public function getNoResultsMessage() {
+    public function getNoPostsMessage() {
         return "<p class=\"center\">" . __("Zde nejsou žádné příspěvky...", "ZZZ_DOMAIN") . "</p>";
     }
 
@@ -144,7 +142,7 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
         }
     }
 
-    private function initResults() {
+    private function initPosts() {
         $args = array(
             "post_type" => KT_WP_POST_KEY,
             "post_status" => "publish",
@@ -170,11 +168,15 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
             ));
         }
         $args["tax_query"] = $taxQuery;
-        $query = new WP_Query($args);
-        if ($query->have_posts()) {
-            return $this->results = $query->get_posts();
+        $query = new WP_Query();
+        $posts = $query->query($args);
+        if (KT::arrayIssetAndNotEmpty($posts)) {
+            $this->posts = $posts;
+            $this->postsCount = count($posts);
+        } else {
+            $this->posts = array();
+            $this->postsCount = 0;
         }
-        return $this->results = null;
     }
 
 }

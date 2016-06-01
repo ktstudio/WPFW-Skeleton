@@ -9,18 +9,18 @@ get_header();
             <header>
                 <h1><?php post_type_archive_title(); ?></h1>
             </header>
-            <?php if ($postsPresenter->isResults()) { ?>
+            <?php if ($postsPresenter->isPosts()) { ?>
                 <div id="posts-container" class="row" data-offset="<?php echo $postsPresenter->getInitialOffset(); ?>" data-category-id="<?php echo $postsPresenter->getCategoryId(); ?>">
-                    <?php $postsPresenter->theResults(); ?>
+                    <?php $postsPresenter->thePosts(); ?>
                 </div>
-                <?php if ($postsPresenter->getCount() == $postsPresenter->getMaxCount()) { ?>
+                <?php if ($postsPresenter->getPostsCount() == $postsPresenter->getMaxCount()) { ?>
                     <div class="text-center">
                         <span id="load-more-posts" class="btn btn-default"><?php _e("Načíst další", "ZZZ_DOMAIN"); ?></span>
                     </div>
                 <?php } ?>
             <?php } else { ?>
                 <div class="row">
-                    <?php echo $postsPresenter->getNoResultsMessage(); ?>
+                    <?php echo $postsPresenter->getNoPostsMessage(); ?>
                 </div>
             <?php } ?>
         </div>
