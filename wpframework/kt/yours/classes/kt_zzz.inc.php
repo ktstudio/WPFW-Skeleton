@@ -13,7 +13,7 @@ class KT_ZZZ {
      * @return KT_ZZZ_Theme_Model
      */
     public static function getThemeModel() {
-        if (KT::issetAndNotEmpty(self::$themeModel)) {
+        if (isset(self::$themeModel)) {
             return self::$themeModel;
         }
         $themeModel = new KT_ZZZ_Theme_Model();

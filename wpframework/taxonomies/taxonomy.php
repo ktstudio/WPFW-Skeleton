@@ -17,7 +17,7 @@ get_header();
                 <?php } ?>
             </header>
             <?php if ($postsPresenter->isPosts()) { ?>
-                <div id="posts-container" class="row" data-offset="<?php echo $postsPresenter->getInitialOffset(); ?>">
+                <div id="posts-container" class="row" data-offset="<?php echo $postsPresenter->getInitialOffset(); ?>" data-category-id="<?php echo $termModel->getId(); ?>">
                     <?php $postsPresenter->thePosts(); ?>
                 </div>
                 <?php if ($postsPresenter->getPostsCount() == $postsPresenter->getMaxCount()) { ?>
