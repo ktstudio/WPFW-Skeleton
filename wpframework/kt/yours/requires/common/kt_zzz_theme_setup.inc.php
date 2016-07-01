@@ -71,7 +71,7 @@ $config->assetsConfigurator()
  */
 $config->assetsConfigurator()
         ->addScript("kt-zzz-functions-script", KT_ZZZ_JS_URL . "/kt-zzz-functions.min.js")
-        ->setDeps(array(KT_JQUERY_UNVEIL_SCRIPT, KT_MAGNIFIC_POPUP_SCRIPT)) //, "kt-zzz-bootstrap-script"))
+        ->setDeps(array(KT_WP_JQUERY_SCRIPT, KT_JQUERY_UNVEIL_SCRIPT, KT_MAGNIFIC_POPUP_SCRIPT)) //, "kt-zzz-bootstrap-script"))
         ->addLocalizationData("myAjax", array("ajaxurl" => admin_url("admin-ajax.php")))
         ->setInFooter(true)
         ->setEnqueue();
@@ -116,6 +116,7 @@ $config->initialize();
 add_action("wp_enqueue_scripts", "kt_zzz_enqueue_jquery_in_footer");
 
 function kt_zzz_enqueue_jquery_in_footer() {
+    wp_deregister_script("wp-embed");
     wp_deregister_script(KT_WP_JQUERY_SCRIPT);
     /*
      * V případě, že máte všechny skripty spojené do jednoho včetně (vlastní) jQuery, 

@@ -8,7 +8,7 @@ add_action("wp_ajax_nopriv_kt_zzz_load_more_posts", "kt_zzz_load_more_posts_call
 function kt_zzz_load_more_posts_callback() {
     if (KT::arrayIssetAndNotEmpty($_REQUEST)) {
         $presenter = new KT_ZZZ_Posts_Presenter();
-        die($presenter->getResultsOutput());
+        die($presenter->getPostsOutput());
     }
     die(false);
 }
