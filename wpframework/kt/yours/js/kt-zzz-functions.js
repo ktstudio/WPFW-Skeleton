@@ -216,3 +216,7 @@ function moveToHtmlTarget(elemnt, topOffset, bottomOffset){
 
     return this;
 }
+
+// Vlastní volání funkcí (pro šablonu)
+
+removeUrlParameter("contact-processed");

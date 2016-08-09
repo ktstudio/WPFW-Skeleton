@@ -70,3 +70,15 @@ loading:before {
     -moz-border-radius: 3px;
     border-radius: 3px;
 }
+
+#projectNotices {
+    text-align: center;
+}
+
+#projectNotices .success {
+    color: green;
+}
+
+#projectNotices .error, .validator .erorr-s {
+    color: red;
+}
