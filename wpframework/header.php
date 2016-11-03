@@ -9,7 +9,7 @@
     <link rel="icon" type="image/ico" href="<?php echo KT::imageGetUrlFromTheme("favicon.ico"); ?>">
     <link rel="pingback" href="<?php bloginfo("pingback_url"); ?>" />
     <?php wp_head(); ?>
-    <!--[if lt IE 9]>
+    <!--[if lte IE 9]>
         <script src="<?php echo KT_ZZZ_JS_URL; ?>/compatibility.js"></script>  
     <![endif]-->
 </head>

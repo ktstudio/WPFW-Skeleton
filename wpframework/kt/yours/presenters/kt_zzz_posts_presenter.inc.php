@@ -2,7 +2,7 @@
 
 class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
 
-    const DEFAULT_COUNT = 12;
+    const DEFAULT_COUNT = 10;
 
     private $posts;
     private $postsCount;

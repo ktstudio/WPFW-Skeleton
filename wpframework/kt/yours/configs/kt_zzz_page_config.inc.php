@@ -7,9 +7,7 @@ class KT_ZZZ_Page_Config implements KT_Configable {
     // --- fieldsety ---------------------------
 
     public static function getAllGenericFieldsets() {
-        return array(
-            self::PARAMS_FIELDSET => self::getParamsFieldset(),
-        );
+        return self::getAllNormalFieldsets() + self::getAllSideFieldsets();
     }
 
     public static function getAllNormalFieldsets() {

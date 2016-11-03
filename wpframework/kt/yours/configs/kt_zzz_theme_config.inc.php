@@ -7,14 +7,7 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
     // --- fieldsety ---------------------------
 
     public static function getAllGenericFieldsets() {
-        return array(
-            self::CATEGORY_FIELDSET => self::getCategoryFieldset(),
-            self::COMPETITIVE_ADVATAGES_FIELDSET => self::getCompetitiveAdvantagesFieldset(),
-            self::ADDRESS_FIELDSET => self::getAddressFieldset(),
-            self::CONTACT_FIELDSET => self::getContactFieldset(),
-            self::SOCIAL_FIELDSET => self::getSocialFieldset(),
-            self::ANALYTICS_FIELDSET => self::getAnalyticsFieldset(),
-        );
+        return self::getAllNormalFieldsets() + self::getAllSideFieldsets();
     }
 
     public static function getAllNormalFieldsets() {
