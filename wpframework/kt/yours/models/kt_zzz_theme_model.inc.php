@@ -91,6 +91,10 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->getOption(KT_ZZZ_Theme_Config::ANALYTICS_TRACKING_CODE);
     }
 
+    public function getAnalyticsPixelCode() {
+        return $this->getOption(KT_ZZZ_Theme_Config::ANALYTICS_PIXEL_CODE);
+    }
+
     // --- veřejné metody ---------------------------
 
     public function isCategoryNews() {
@@ -159,6 +163,10 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
 
     public function isAnalyticsTrackingCode() {
         return KT::issetAndNotEmpty($this->getAnalyticsTrackingCode());
+    }
+
+    public function isAnalyticsPixelCode() {
+        return KT::issetAndNotEmpty($this->getAnalyticsPixelCode());
     }
 
     // --- neveřejné metody ------------------------

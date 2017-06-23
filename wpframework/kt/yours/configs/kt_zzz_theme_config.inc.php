@@ -128,6 +128,7 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
 
     const ANALYTICS_FIELDSET = "kt-zzz-theme-analytics";
     const ANALYTICS_TRACKING_CODE = "kt-zzz-theme-analytics-tracking-code";
+    const ANALYTICS_PIXEL_CODE = "kt-zzz-theme-analytics-pixel-code";
 
     public static function getAnalyticsFieldset() {
         $fieldset = new KT_Form_Fieldset(self::ANALYTICS_FIELDSET, __("Analytika", "ZZZ_ADMIN_DOMAIN"));
@@ -136,6 +137,11 @@ class KT_ZZZ_Theme_Config implements KT_Configable {
         $fieldset->addTextarea(self::ANALYTICS_TRACKING_CODE, __("Měřící kód:", "ZZZ_ADMIN_DOMAIN"))
                 ->setToolTip(__("Měřící kód(y) Google Tag Manager nebo Analytics, popř. Seznam", "ZZZ_ADMIN_DOMAIN"))
                 ->setFilterSanitize(FILTER_DEFAULT);
+
+        $fieldset->addTextarea(self::ANALYTICS_PIXEL_CODE, __("Pixel kód:", "ZZZ_ADMIN_DOMAIN"))
+                ->setToolTip(__("Měřící (Facebook) Pixel kód(y) do hlavičky", "ZZZ_ADMIN_DOMAIN"))
+                ->setFilterSanitize(FILTER_DEFAULT);
+
         return $fieldset;
     }
 

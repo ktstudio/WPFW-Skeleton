@@ -8,18 +8,14 @@
     <title><?php wp_title("|", true, "right"); ?></title>
     <link rel="icon" type="image/ico" href="<?php echo KT::imageGetUrlFromTheme("favicon.ico"); ?>">
     <link rel="pingback" href="<?php bloginfo("pingback_url"); ?>" />
-    <?php wp_head(); ?>
-    <!--[if lte IE 9]>
-        <script src="<?php echo KT_ZZZ_JS_URL; ?>/compatibility.js"></script>  
-    <![endif]-->
+    <?php
+    wp_head();
+    KT_ZZZ::renderAnalyticsPixelCode();
+    KT_ZZZ::renderCompatibilityScript();
+    ?>
 </head>
 <body>
-    <?php
-    if (KT_ZZZ::getThemeModel()->isAnalyticsTrackingCode()) {
-        echo KT_ZZZ::getThemeModel()->getAnalyticsTrackingCode();
-    }
-    ?>
-
+    <?php KT_ZZZ::renderAnalyticsTrackingCode(); ?>
     <header id="header" class="container">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
