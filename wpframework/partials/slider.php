@@ -1,6 +1,6 @@
 <?php
 $sliderPresenter = new KT_ZZZ_Sliders_Presenter();
-if ($sliderPresenter->isPosts()) {
+if ($sliderPresenter->hasPosts()) {
     ?>
 
     <section id="slider">

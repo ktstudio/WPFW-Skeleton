@@ -9,7 +9,7 @@ get_header();
             <header>
                 <h1><?php post_type_archive_title(); ?></h1>
             </header>
-            <?php if ($postsPresenter->isPosts()) { ?>
+            <?php if ($postsPresenter->hasPosts()) { ?>
                 <div id="posts-container" class="row" data-offset="<?php echo $postsPresenter->getInitialOffset(); ?>" data-category-id="<?php echo $postsPresenter->getCategoryId(); ?>">
                     <?php $postsPresenter->thePosts(); ?>
                 </div>

@@ -32,7 +32,7 @@ class KT_ZZZ_Post_Config implements KT_Configable
         $fieldset = new KT_Form_Fieldset(self::PARAMS_FIELDSET, __("Parametry", "ZZZ_ADMIN_DOMAIN"));
         $fieldset->setPostPrefix(self::PARAMS_FIELDSET);
 
-        // TODO
+        // @todo
 
         return $fieldset;
     }

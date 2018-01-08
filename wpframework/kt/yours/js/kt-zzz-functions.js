@@ -125,7 +125,7 @@ jQuery(document).ready(function () {
                 container.html(container.html() + response);
                 var count = jQuery("#posts-container article").length;
                 container.data("offset", count);
-                if (count < 10) {
+                if (count < 10 || (count - offset) < 10) {
                     input.css("display", "none");
                 }
             }

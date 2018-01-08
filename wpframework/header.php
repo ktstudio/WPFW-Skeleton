@@ -14,7 +14,7 @@
     KT_ZZZ::renderCompatibilityScript();
     ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
     <?php KT_ZZZ::renderAnalyticsTrackingCode(); ?>
     <header id="header" class="container">
         <nav class="navbar navbar-default">

@@ -16,7 +16,7 @@ get_header();
                     <h2 class="text-center hidden-xs"><?php echo $termModel->getDescription(); ?></h2>
                 <?php } ?>
             </header>
-            <?php if ($postsPresenter->isPosts()) { ?>
+            <?php if ($postsPresenter->hasPosts()) { ?>
                 <div id="posts-container" class="row" data-offset="<?php echo $postsPresenter->getInitialOffset(); ?>" data-category-id="<?php echo $termModel->getId(); ?>">
                     <?php $postsPresenter->thePosts(); ?>
                 </div>

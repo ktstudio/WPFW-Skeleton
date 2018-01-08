@@ -27,7 +27,7 @@ function kt_zzz_register_slider_post_type()
         "publicly_queryable" => false,
         "show_ui" => true,
         "show_in_menu" => true,
-        "capability_type" => "post",
+        "capability_type" => KT_WP_POST_KEY,
         "query_var" => true,
         "rewrite" => ["slug" => KT_ZZZ_SLIDER_SLUG, "with_front" => false],
         "has_archive" => false,

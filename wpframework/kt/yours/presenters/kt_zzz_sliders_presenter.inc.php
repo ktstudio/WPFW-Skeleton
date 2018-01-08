@@ -37,14 +37,14 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base
     // --- veřejné metody ------------------------
 
     /** @return boolean */
-    public function isPosts()
+    public function hasPosts()
     {
         return $this->getPostsCount() > 0;
     }
 
     public function theIndicators()
     {
-        if ($this->isPosts()) {
+        if ($this->hasPosts()) {
             $number = 0;
             foreach ($this->getPosts() as $post) {
                 $classPart = ($number === 0) ? " class=\"active\"" : "";
@@ -56,7 +56,7 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base
 
     public function theInners()
     {
-        if ($this->isPosts()) {
+        if ($this->hasPosts()) {
             $number = 0;
             foreach ($this->getPosts() as $post) {
                 $activePart = ($number === 0) ? " active" : "";

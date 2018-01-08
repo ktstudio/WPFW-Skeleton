@@ -36,15 +36,15 @@ class KT_ZZZ_References_Presenter extends KT_Presenter_Base
 
     // --- veřejné metody ------------------------------
 
-    /** @return bool */
-    public function isPosts()
+    /** @return boolean */
+    public function hasPosts()
     {
         return $this->getPostsCount() > 0;
     }
 
     public function thePosts()
     {
-        if ($this->isPosts()) {
+        if ($this->hasPosts()) {
             $clearfixes = [
                 2 => "<div class=\"visible-sm-block clearfix\"></div>", // za každým 2. záznamem
                 3 => "<div class=\"visible-lg-block visible-md-block clearfix\"></div>" // za každým 3. záznamem

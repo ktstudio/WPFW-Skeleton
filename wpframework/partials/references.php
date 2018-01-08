@@ -1,6 +1,6 @@
 <?php
 $referencesPresenter = new KT_ZZZ_References_Presenter();
-if ($referencesPresenter->isPosts()) {
+if ($referencesPresenter->hasPosts()) {
     ?>
 
     <div class="row">

@@ -89,14 +89,14 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base
     // --- veřejné metody ------------------------------
 
     /** @return boolean */
-    public function isPosts()
+    public function hasPosts()
     {
         return $this->getPostsCount() > 0;
     }
 
     public function thePosts()
     {
-        if ($this->isPosts()) {
+        if ($this->hasPosts()) {
             self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY, null, null, self::getClearfixes());
         }
     }

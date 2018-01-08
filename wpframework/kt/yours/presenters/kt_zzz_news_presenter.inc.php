@@ -36,15 +36,15 @@ class KT_ZZZ_News_Presenter extends KT_Presenter_Base
 
     // --- veřejné metody ------------------------------
 
-    /** @return bool */
-    public function isPosts()
+    /** @return boolean */
+    public function hasPosts()
     {
         return $this->getPostsCount() > 0;
     }
 
     public function thePosts()
     {
-        if ($this->isPosts()) {
+        if ($this->hasPosts()) {
             self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY);
         }
     }
