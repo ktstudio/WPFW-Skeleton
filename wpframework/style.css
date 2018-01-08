@@ -6,6 +6,10 @@ Description: Na míru pro WPFramework.cz
 Version: 1.0
 */
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 .loadingUpper {
     position:relative
 }

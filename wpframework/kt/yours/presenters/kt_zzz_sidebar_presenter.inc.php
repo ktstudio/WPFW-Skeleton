@@ -1,7 +1,7 @@
 <?php
 
-class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
-
+class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base
+{
     const DEFAULT_LIMIT = 10;
 
     private $pages;
@@ -11,7 +11,8 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
     private $currentSidebarKey;
     private $currentSidebarName;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
         $this->initCurrentSidebar();
     }
@@ -19,7 +20,8 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
     // --- getry & setry ------------------------------
 
     /** @return array */
-    public function getPages() {
+    public function getPages()
+    {
         if (isset($this->pages)) {
             return $this->pages;
         }
@@ -28,7 +30,8 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
     }
 
     /** @return int */
-    public function getPagesCount() {
+    public function getPagesCount()
+    {
         if (isset($this->pagesCount)) {
             return $this->pagesCount;
         }
@@ -37,7 +40,8 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
     }
 
     /** @return array */
-    public function getCategories() {
+    public function getCategories()
+    {
         if (isset($this->categories)) {
             return $this->categories;
         }
@@ -46,7 +50,8 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
     }
 
     /** @return int */
-    public function getCategoriesCount() {
+    public function getCategoriesCount()
+    {
         if (isset($this->categoriesCount)) {
             return $this->categoriesCount;
         }
@@ -55,21 +60,25 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
     }
 
     /** @return string */
-    public function getCurrentSidebarKey() {
+    public function getCurrentSidebarKey()
+    {
         return $this->currentSidebarKey;
     }
 
-    private function setCurrentSidebarKey($value) {
+    private function setCurrentSidebarKey($value)
+    {
         $this->currentSidebarKey = $value;
         return $this;
     }
 
     /** @return string */
-    public function getCurrentSidebarName() {
+    public function getCurrentSidebarName()
+    {
         return $this->currentSidebarName;
     }
 
-    private function setCurrentSidebarName($value) {
+    private function setCurrentSidebarName($value)
+    {
         $this->currentSidebarName = $value;
         return $this;
     }
@@ -77,16 +86,19 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
     // --- veřejné metody ------------------------------
 
     /** @return boolean */
-    public function isPages() {
+    public function isPages()
+    {
         return $this->getPagesCount() > 0;
     }
 
     /** @return boolean */
-    public function isCategories() {
+    public function isCategories()
+    {
         return $this->getCategoriesCount() > 0;
     }
 
-    public function render() {
+    public function render()
+    {
         // pages & categories
         $post = get_post();
         $isSingular = is_singular(KT_WP_POST_KEY);
@@ -106,14 +118,14 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
         } elseif (is_category() || $isSingular) {
             $currentId = get_queried_object_id();
             $postModel = new KT_WP_Post_Base_Model($post);
-            $categoriesIds = $postModel->getCategoriesIds() ? : array();
+            $categoriesIds = $postModel->getCategoriesIds() ?: [];
             echo "\n<div class=\"widget\">";
             echo "<h2 class=\"widgettitle\">" . __("Kategorie", "ZZZ_DOMAIN") . "</h2>";
             echo "<ul class=\"nav nav-pills nav-stacked\">";
             foreach ($this->getCategories() as $term) {
                 $termModel = new KT_WP_Term_Base_Model($term);
                 if ($isSingular) {
-                    $classAttribute = (in_array($termModel->getId(), $categoriesIds)) ? " class=\"active\"" : "";
+                    $classAttribute = (in_array([$termModel->getId(), $categoriesIds])) ? " class=\"active\"" : "";
                 } else {
                     $classAttribute = ($termModel->getId() == $currentId) ? " class=\"active\"" : "";
                 }
@@ -129,17 +141,18 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
 
     // --- neveřejné metody ------------------------------
 
-    private function initPages() {
+    private function initPages()
+    {
         /* @var $post WP_Post */
         global $post;
-        $args = array(
+        $args = [
             "post_type" => KT_WP_PAGE_KEY,
             "post_status" => "publish",
             "post_parent" => $post->ID,
             "posts_per_page" => self::DEFAULT_LIMIT,
             "orderby" => "menu_order title",
             "order" => KT_Repository::ORDER_ASC,
-        );
+        ];
         $query = new WP_Query();
         $posts = $query->query($args);
         if (KT::arrayIssetAndNotEmpty($posts)) {
@@ -147,14 +160,14 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
             $this->pagesCount = count($posts);
             return;
         } elseif ($post->post_parent > 0) {
-            $args = array(
+            $args = [
                 "post_type" => KT_WP_PAGE_KEY,
                 "post_status" => "publish",
                 "post_parent" => $post->post_parent,
                 "posts_per_page" => self::DEFAULT_LIMIT,
                 "orderby" => "menu_order title",
                 "order" => KT_Repository::ORDER_ASC,
-            );
+            ];
             $query = new WP_Query();
             $posts = $query->query($args);
             if (KT::arrayIssetAndNotEmpty($posts)) {
@@ -163,23 +176,25 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
                 return;
             }
         }
-        $this->pages = array();
+        $this->pages = [];
         $this->pagesCount = 0;
     }
 
-    private function initCategories() {
+    private function initCategories()
+    {
         $categories = get_categories();
         if (KT::arrayIssetAndNotEmpty($categories)) {
             $this->categories = $categories;
             $this->categoriesCount = count($categories);
         } else {
-            $this->categories = array();
+            $this->categories = [];
             $this->categoriesCount = 0;
         }
     }
 
     /** @return KT_ZZZ_Sidebar_Presenter */
-    private function initCurrentSidebar() {
+    private function initCurrentSidebar()
+    {
         global $wp_registered_sidebars;
         $sidebarKey = KT_ZZZ_SIDEBAR_DEFAULT;
         if (KT::arrayIssetAndNotEmpty($wp_registered_sidebars)) {
@@ -192,5 +207,4 @@ class KT_ZZZ_Sidebar_Presenter extends KT_Presenter_Base {
         }
         return $this->setCurrentSidebarKey($sidebarKey);
     }
-
 }

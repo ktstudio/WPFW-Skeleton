@@ -1,14 +1,16 @@
 <?php
 
-class KT_ZZZ_Contact_Form_Presenter extends KT_Contact_Form_Base_Presenter {
-
-    public function __construct($withProcessing = true) {
+class KT_ZZZ_Contact_Form_Presenter extends KT_Contact_Form_Base_Presenter
+{
+    public function __construct($withProcessing = true)
+    {
         parent::__construct($withProcessing);
     }
 
     // --- veřejné funkce ------------------------------
 
-    public function renderForm() {
+    public function renderForm()
+    {
         $form = $this->getForm();
         $fieldset = $this->getFieldset();
 
@@ -52,14 +54,14 @@ class KT_ZZZ_Contact_Form_Presenter extends KT_Contact_Form_Base_Presenter {
 
         echo $form->getFormFooter();
     }
-    
+
     // --- neveřejné funkce ------------------------------
 
-    protected function initForm() {
+    protected function initForm()
+    {
         /* @var $form KT_Form */
         $form = parent::initForm();
         $form->setButtonClass("btn btn-default submitButton");
         return $form;
     }
-
 }

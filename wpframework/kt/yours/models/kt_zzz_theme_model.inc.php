@@ -1,21 +1,24 @@
 <?php
 
-class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
-
+class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model
+{
     private $categoryNewsPermalink;
     private $categoryNewsTitle;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct(KT_ZZZ_Theme_Config::FORM_PREFIX);
     }
 
     // --- getry & setry ------------------------
 
-    public function getCategoryNewsId() {
+    public function getCategoryNewsId()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::CATEGORY_NEWS_ID);
     }
 
-    public function getCategoryNewsPermalink() {
+    public function getCategoryNewsPermalink()
+    {
         if (isset($this->categoryNewsPermalink)) {
             return $this->categoryNewsPermalink;
         }
@@ -25,7 +28,8 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->categoryNewsPermalink = "";
     }
 
-    public function getCategoryNewsTitle() {
+    public function getCategoryNewsTitle()
+    {
         if (isset($this->categoryNewsTitle)) {
             return $this->categoryNewsTitle;
         }
@@ -35,146 +39,179 @@ class KT_ZZZ_Theme_Model extends KT_WP_Options_Base_Model {
         return $this->categoryNewsTitle = "";
     }
 
-    public function getCompetitiveAdvantagesTitle() {
+    public function getCompetitiveAdvantagesTitle()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::COMPETITIVE_ADVATAGES_TITLE);
     }
 
-    public function getCompetitiveAdvantagesMaxCount() {
+    public function getCompetitiveAdvantagesMaxCount()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::COMPETITIVE_ADVATAGES_MAX_COUNT);
     }
 
-    public function getAddressTitle() {
+    public function getAddressTitle()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::ADDRESS_TITLE);
     }
 
-    public function getAddressStreet() {
+    public function getAddressStreet()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::ADDRESS_STREET);
     }
 
-    public function getAddressCity() {
+    public function getAddressCity()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::ADDRESS_CITY);
     }
 
-    public function getAddressZip() {
+    public function getAddressZip()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::ADDRESS_ZIP);
     }
 
-    public function getContactPhone() {
+    public function getContactPhone()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::CONTACT_PHONE);
     }
 
-    public function getContactMobile() {
+    public function getContactMobile()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::CONTACT_MOBILE);
     }
 
-    public function getContactEmail() {
+    public function getContactEmail()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::CONTACT_EMAIL);
     }
 
-    public function getSocialFacebook() {
+    public function getSocialFacebook()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_FACEBOOK);
     }
 
-    public function getSocialTwitter() {
+    public function getSocialTwitter()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_TWITTER);
     }
 
-    public function getSocialGooglePlus() {
+    public function getSocialGooglePlus()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_GOOGLE_PLUS);
     }
 
-    public function getSocialYouTube() {
+    public function getSocialYouTube()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::SOCIAL_YOUTUBE);
     }
 
-    public function getAnalyticsTrackingCode() {
+    public function getAnalyticsTrackingCode()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::ANALYTICS_TRACKING_CODE);
     }
 
-    public function getAnalyticsPixelCode() {
+    public function getAnalyticsPixelCode()
+    {
         return $this->getOption(KT_ZZZ_Theme_Config::ANALYTICS_PIXEL_CODE);
     }
 
     // --- veřejné metody ---------------------------
 
-    public function isCategoryNews() {
+    public function isCategoryNews()
+    {
         return KT::isIdFormat($this->getCategoryNewsId());
     }
 
-    public function isCategoryNewsPermalink() {
+    public function isCategoryNewsPermalink()
+    {
         return KT::issetAndNotEmpty($this->getCategoryNewsId());
     }
 
-    public function isCategoryNewsTitle() {
+    public function isCategoryNewsTitle()
+    {
         return KT::issetAndNotEmpty($this->getCategoryNewsId());
     }
 
-    public function isCompetitiveAdvantagesTitle() {
+    public function isCompetitiveAdvantagesTitle()
+    {
         return KT::issetAndNotEmpty($this->getCompetitiveAdvantagesTitle());
     }
 
-    public function isCompetitiveAdvantagesMaxCount() {
+    public function isCompetitiveAdvantagesMaxCount()
+    {
         return KT::isIdFormat($this->getCompetitiveAdvantagesMaxCount());
     }
 
-    public function isAddressTitle() {
+    public function isAddressTitle()
+    {
         return KT::issetAndNotEmpty($this->getAddressTitle());
     }
 
-    public function isAddressStreet() {
+    public function isAddressStreet()
+    {
         return KT::issetAndNotEmpty($this->getAddressStreet());
     }
 
-    public function isAddressCity() {
+    public function isAddressCity()
+    {
         return KT::issetAndNotEmpty($this->getAddressCity());
     }
 
-    public function isAddressZip() {
+    public function isAddressZip()
+    {
         return KT::issetAndNotEmpty($this->getAddressZip());
     }
 
-    public function isContactPhone() {
+    public function isContactPhone()
+    {
         return KT::issetAndNotEmpty($this->getContactPhone());
     }
 
-    public function isContactMobile() {
+    public function isContactMobile()
+    {
         return KT::issetAndNotEmpty($this->getContactMobile());
     }
 
-    public function isContactEmail() {
+    public function isContactEmail()
+    {
         return KT::issetAndNotEmpty($this->getContactEmail());
     }
 
-    public function theSocialFacebook() {
+    public function theSocialFacebook()
+    {
         $this->theSocialListItem($this->getSocialFacebook(), __("Facebook", "ZZZ_DOMAIN"), "facebook");
     }
 
-    public function theSocialTwitter() {
+    public function theSocialTwitter()
+    {
         $this->theSocialListItem($this->getSocialTwitter(), __("Twitter", "ZZZ_DOMAIN"), "twitter");
     }
 
-    public function theSocialGooglePlus() {
+    public function theSocialGooglePlus()
+    {
         $this->theSocialListItem($this->getSocialGooglePlus(), __("Google+", "ZZZ_DOMAIN"), "google");
     }
 
-    public function theSocialYouTube() {
+    public function theSocialYouTube()
+    {
         $this->theSocialListItem($this->getSocialYouTube(), __("YouTube kanál", "ZZZ_DOMAIN"), "youtube");
     }
 
-    public function isAnalyticsTrackingCode() {
+    public function isAnalyticsTrackingCode()
+    {
         return KT::issetAndNotEmpty($this->getAnalyticsTrackingCode());
     }
 
-    public function isAnalyticsPixelCode() {
+    public function isAnalyticsPixelCode()
+    {
         return KT::issetAndNotEmpty($this->getAnalyticsPixelCode());
     }
 
     // --- neveřejné metody ------------------------
 
-    private function theSocialListItem($url, $title, $class) {
+    private function theSocialListItem($url, $title, $class)
+    {
         if (KT::issetAndNotEmpty($url) && KT::issetAndNotEmpty($title) && KT::issetAndNotEmpty($class)) {
             echo "<li><a href=\"{$url}\" title=\"{$title}\" target=\"_blank\" class=\"{$class}\">{$title}</a></li>";
         }
     }
-
 }

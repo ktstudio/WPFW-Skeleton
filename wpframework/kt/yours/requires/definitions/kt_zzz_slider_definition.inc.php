@@ -2,11 +2,11 @@
 
 add_action("init", "kt_zzz_register_slider_post_type");
 
-function kt_zzz_register_slider_post_type() {
-
+function kt_zzz_register_slider_post_type()
+{
     // --- post type ------------------------
 
-    $labels = array(
+    $labels = [
         "name" => __("Slidy", "ZZZ_ADMIN_DOMAIN"),
         "singular_name" => __("Slide", "ZZZ_ADMIN_DOMAIN"),
         "add_new" => __("Přidat slide", "ZZZ_ADMIN_DOMAIN"),
@@ -19,9 +19,9 @@ function kt_zzz_register_slider_post_type() {
         "not_found" => __("Žádné slidy nenalezeny", "ZZZ_ADMIN_DOMAIN"),
         "not_found_in_trash" => __("Žádné slidy v koši", "ZZZ_ADMIN_DOMAIN"),
         "menu_name" => __("Slidy", "ZZZ_ADMIN_DOMAIN"),
-    );
+    ];
 
-    $args = array(
+    $args = [
         "labels" => $labels,
         "public" => false,
         "publicly_queryable" => false,
@@ -29,18 +29,18 @@ function kt_zzz_register_slider_post_type() {
         "show_in_menu" => true,
         "capability_type" => "post",
         "query_var" => true,
-        "rewrite" => array("slug" => KT_ZZZ_SLIDER_SLUG, "with_front" => false),
+        "rewrite" => ["slug" => KT_ZZZ_SLIDER_SLUG, "with_front" => false],
         "has_archive" => false,
         "hierarchical" => false,
         "menu_position" => 4,
         "menu_icon" => "dashicons-images-alt",
-        "supports" => array(
+        "supports" => [
             KT_WP_POST_TYPE_SUPPORT_TITLE_KEY,
             KT_WP_POST_TYPE_SUPPORT_THUMBNAIL_KEY,
             KT_WP_POST_TYPE_SUPPORT_EXCERPT_KEY,
             KT_WP_POST_TYPE_SUPPORT_PAGE_ATTRIBUTES_KEY,
-        ),
-    );
+        ],
+    ];
 
     register_post_type(KT_ZZZ_SLIDER_KEY, $args);
 }
@@ -49,17 +49,16 @@ function kt_zzz_register_slider_post_type() {
 
 if (is_admin()) { // vlastní sloupce v administraci
     $sliderColumns = new KT_Admin_Columns(KT_ZZZ_SLIDER_SLUG);
-    $sliderColumns->addColumn("post_thumbnail", array(
+    $sliderColumns->addColumn("post_thumbnail", [
         KT_Admin_Columns::LABEL_PARAM_KEY => __("Foto", "ZZZ_ADMIN_DOMAIN"),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::THUMBNAIL_TYPE_KEY,
         KT_Admin_Columns::INDEX_PARAM_KEY => 0,
-            )
-    );
-    $sliderColumns->addColumn("menu_order", array(
+    ]);
+    $sliderColumns->addColumn("menu_order", [
         KT_Admin_Columns::LABEL_PARAM_KEY => __("Pořadí", "ZZZ_ADMIN_DOMAIN"),
         KT_Admin_Columns::TYPE_PARAM_KEY => KT_Admin_Columns::POST_PROPERTY_TYPE_KEY,
         KT_Admin_Columns::PROPERTY_PARAM_KEY => "menu_order",
         KT_Admin_Columns::SORTABLE_PARAM_KEY => true,
         KT_Admin_Columns::INDEX_PARAM_KEY => 3,
-    ));
+    ]);
 }

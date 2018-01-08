@@ -1,7 +1,7 @@
 <?php
 
-class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
-
+class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base
+{
     const DEFAULT_COUNT = 10;
 
     private $posts;
@@ -10,9 +10,10 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
     private $offset;
     private $categoryId;
 
-    public function __construct($maxCount = self::DEFAULT_COUNT, $withInitParams = true) {
+    public function __construct($maxCount = self::DEFAULT_COUNT, $withInitParams = true)
+    {
         parent::__construct();
-        $this->maxCount = KT::tryGetInt($maxCount) ? : self::DEFAULT_COUNT;
+        $this->maxCount = KT::tryGetInt($maxCount) ?: self::DEFAULT_COUNT;
         if ($withInitParams) {
             $this->initParams();
         }
@@ -21,7 +22,8 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
     // --- getry & setry ------------------------------
 
     /** @return array */
-    public function getPosts() {
+    public function getPosts()
+    {
         if (KT::issetAndNotEmpty($this->posts)) {
             return $this->posts;
         }
@@ -30,7 +32,8 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
     }
 
     /** @return int */
-    public function getPostsCount() {
+    public function getPostsCount()
+    {
         if (isset($this->postsCount)) {
             return $this->postsCount;
         }
@@ -39,69 +42,81 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
     }
 
     /** @return int */
-    public function getMaxCount() {
+    public function getMaxCount()
+    {
         return $this->maxCount;
     }
 
     /** @return int */
-    public function getOffset() {
+    public function getOffset()
+    {
         return $this->offset;
     }
 
     /** @return int */
-    public function getInitialOffset() {
-        return $this->getOffset() ? : self::DEFAULT_COUNT;
+    public function getInitialOffset()
+    {
+        return $this->getOffset() ?: self::DEFAULT_COUNT;
     }
 
-    private function setOffset($value) {
+    private function setOffset($value)
+    {
         $this->offset = KT::tryGetInt($value);
         return $this;
     }
 
     /** @return int */
-    public function getCategoryId() {
+    public function getCategoryId()
+    {
         return $this->categoryId;
     }
 
-    private function setCategoryId($value) {
+    private function setCategoryId($value)
+    {
         $this->categoryId = KT::tryGetInt($value);
         return $this;
     }
 
-    public static function getClearfixes() {
-        return array(
+    public static function getClearfixes()
+    {
+        return [
             2 => "<div class=\"visible-sm-block clearfix\"></div>", // za každým 2. záznamem
             3 => "<div class=\"visible-md-block clearfix\"></div>", // za každým 3. záznamem
             4 => "<div class=\"visible-lg-block clearfix\"></div>", // za každým 4. záznamem
-        );
+        ];
     }
 
     // --- veřejné metody ------------------------------
 
     /** @return boolean */
-    public function isPosts() {
+    public function isPosts()
+    {
         return $this->getPostsCount() > 0;
     }
 
-    public function thePosts() {
+    public function thePosts()
+    {
         if ($this->isPosts()) {
             self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY, null, null, self::getClearfixes());
         }
     }
 
-    public function theFirstPost() {
+    public function theFirstPost()
+    {
         if ($this->isPosts()) {
             self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY . "-top", 1, 0, self::getClearfixes());
         }
     }
 
-    public function theOthersPosts() {
+    public function theOthersPosts()
+    {
         if ($this->isPosts()) {
             self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY, ($this->getMaxCount() - 1), 1, self::getClearfixes());
         }
     }
 
-    public function getPostsOutput() {
+    public function getPostsOutput()
+    {
         if ($this->isPosts()) {
             ob_start();
             $this->thePosts();
@@ -114,23 +129,27 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
         }
     }
 
-    public function getNoPostsMessage() {
+    public function getNoPostsMessage()
+    {
         return "<p class=\"center\">" . __("Zde nejsou žádné příspěvky...", "ZZZ_DOMAIN") . "</p>";
     }
 
     /** @return boolean */
-    public function isOffset() {
+    public function isOffset()
+    {
         return KT::isIdFormat($this->getOffset());
     }
 
     /** @return boolean */
-    public function isCategoryId() {
+    public function isCategoryId()
+    {
         return KT::isIdFormat($this->getCategoryId());
     }
 
     // --- neveřejné metody ------------------------------
 
-    private function initParams() {
+    private function initParams()
+    {
         $this->setOffset(KT::arrayTryGetValue($_REQUEST, "kt_offset"));
         $queriedObject = get_queried_object();
         if (KT::issetAndNotEmpty($queriedObject)) {
@@ -142,30 +161,31 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
         }
     }
 
-    private function initPosts() {
-        $args = array(
+    private function initPosts()
+    {
+        $args = [
             "post_type" => KT_WP_POST_KEY,
             "post_status" => "publish",
             "posts_per_page" => $this->getMaxCount(),
             "orderby" => "date",
             "order" => KT_Repository::ORDER_DESC,
-        );
+        ];
         // except himself
         if (is_single()) {
-            $args["post__not_in"] = array(get_the_ID());
+            $args["post__not_in"] = [get_the_ID()];
         }
         // offset
         if ($this->isOffset()) {
             $args["offset"] = $this->getOffset();
         }
         // category
-        $taxQuery = array("relation" => "AND");
+        $taxQuery = ["relation" => "AND"];
         if ($this->isCategoryId()) {
-            array_push($taxQuery, array(
+            array_push($taxQuery, [
                 "taxonomy" => KT_WP_CATEGORY_KEY,
                 "field" => "term_id",
-                "terms" => array($this->getCategoryId()),
-            ));
+                "terms" => [$this->getCategoryId()],
+            ]);
         }
         $args["tax_query"] = $taxQuery;
         $query = new WP_Query();
@@ -174,9 +194,8 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base {
             $this->posts = $posts;
             $this->postsCount = count($posts);
         } else {
-            $this->posts = array();
+            $this->posts = [];
             $this->postsCount = 0;
         }
     }
-
 }

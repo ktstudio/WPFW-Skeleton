@@ -1,23 +1,26 @@
 <?php
 
-class KT_ZZZ_Reference_Config implements KT_Configable {
-
+class KT_ZZZ_Reference_Config implements KT_Configable
+{
     const FORM_PREFIX = "kt-zzz-reference";
 
     // --- fieldsety ---------------------------
 
-    public static function getAllGenericFieldsets() {
+    public static function getAllGenericFieldsets()
+    {
         return self::getAllNormalFieldsets() + self::getAllSideFieldsets();
     }
 
-    public static function getAllNormalFieldsets() {
-        return array(
+    public static function getAllNormalFieldsets()
+    {
+        return [
             self::PARAMS_FIELDSET => self::getParamsFieldset(),
-        );
+        ];
     }
 
-    public static function getAllSideFieldsets() {
-        return array();
+    public static function getAllSideFieldsets()
+    {
+        return [];
     }
 
     // --- parametry ---------------------------
@@ -27,7 +30,8 @@ class KT_ZZZ_Reference_Config implements KT_Configable {
     const PARAMS_CLIENT = "kt-zzz-reference-params-client";
     const PARAMS_TYPES = "kt-zzz-reference-params-types";
 
-    public static function getParamsFieldset() {
+    public static function getParamsFieldset()
+    {
         $fieldset = new KT_Form_Fieldset(self::PARAMS_FIELDSET, __("Parametry", "ZZZ_ADMIN_DOMAIN"));
         $fieldset->setPostPrefix(self::PARAMS_FIELDSET);
 
@@ -39,9 +43,8 @@ class KT_ZZZ_Reference_Config implements KT_Configable {
         $fieldset->addText(self::PARAMS_CLIENT, __("Klient:", "ZZZ_ADMIN_DOMAIN"));
 
         $fieldset->addCheckbox(self::PARAMS_TYPES, __("Typy:", "ZZZ_ADMIN_DOMAIN"))
-                ->setOptionsData($referenceOptions);
+            ->setOptionsData($referenceOptions);
 
         return $fieldset;
     }
-
 }

@@ -1,20 +1,22 @@
 <?php
 
-class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
-
+class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base
+{
     const DEFAULT_COUNT = 3;
 
     private $posts = null;
     private $postsCount;
 
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
     }
 
     // --- getry & setry ------------------------
 
     /** @return array */
-    public function getPosts() {
+    public function getPosts()
+    {
         if (isset($this->posts)) {
             return $this->posts;
         }
@@ -23,7 +25,8 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
     }
 
     /** @return int */
-    public function getPostsCount() {
+    public function getPostsCount()
+    {
         if (isset($this->postsCount)) {
             return $this->postsCount;
         }
@@ -34,11 +37,13 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
     // --- veřejné metody ------------------------
 
     /** @return boolean */
-    public function isPosts() {
+    public function isPosts()
+    {
         return $this->getPostsCount() > 0;
     }
 
-    public function theIndicators() {
+    public function theIndicators()
+    {
         if ($this->isPosts()) {
             $number = 0;
             foreach ($this->getPosts() as $post) {
@@ -49,7 +54,8 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
         }
     }
 
-    public function theInners() {
+    public function theInners()
+    {
         if ($this->isPosts()) {
             $number = 0;
             foreach ($this->getPosts() as $post) {
@@ -69,23 +75,23 @@ class KT_ZZZ_Sliders_Presenter extends KT_Presenter_Base {
 
     // --- neveřejné metody ------------------------
 
-    private function initPosts() {
-        $args = array(
+    private function initPosts()
+    {
+        $args = [
             "post_type" => KT_ZZZ_SLIDER_KEY,
             "post_status" => "publish",
             "posts_per_page" => self::DEFAULT_COUNT,
             "orderby" => "menu_order title",
             "order" => KT_Repository::ORDER_ASC,
-        );
+        ];
         $query = new WP_Query();
         $posts = $query->query($args);
         if (KT::arrayIssetAndNotEmpty($posts)) {
             $this->posts = $posts;
             $this->postsCount = count($posts);
         } else {
-            $this->posts = array();
+            $this->posts = [];
             $this->postsCount = 0;
         }
     }
-
 }

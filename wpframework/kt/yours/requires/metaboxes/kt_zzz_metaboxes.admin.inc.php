@@ -25,7 +25,7 @@ KT_MetaBox::createMultiple(KT_ZZZ_Reference_Config::getAllGenericFieldsets(), KT
 // --- competitive advantage ------------------------
 
 KT_Metabox::createCrud(
-        KT_ZZZ_Competitive_Advantage_Config::getDetailFieldset(), KT_Custom_Metaboxes_Page::getCustomMetaboxPageScreenName(KT_ZZZ_Competitive_Advantage_Model::PREFIX), "KT_ZZZ_Competitive_Advantage_Model", KT_ZZZ_Competitive_Advantage_Model::ID_COLUMN
+    KT_ZZZ_Competitive_Advantage_Config::getDetailFieldset(), KT_Custom_Metaboxes_Page::getCustomMetaboxPageScreenName(KT_ZZZ_Competitive_Advantage_Model::PREFIX), "KT_ZZZ_Competitive_Advantage_Model", KT_ZZZ_Competitive_Advantage_Model::ID_COLUMN
 );
 
 // --- content ------------------------
@@ -37,7 +37,8 @@ foreach (array(KT_WP_POST_KEY, KT_WP_PAGE_KEY) as $postType) {
     $pageShortcodesMetabox->register();
 }
 
-function kt_zzz_content_shortcodes_metabox_callback() {
+function kt_zzz_content_shortcodes_metabox_callback()
+{
     echo "<ol>";
     echo "<li><b>[zzz_row_start]</b> - <i>začátek řádku</i></li>";
     echo "<li><b>[zzz_column_start]</b> - <i>začátek sloupce</i></li>";
