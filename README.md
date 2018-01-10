@@ -40,4 +40,5 @@ Základní kostra pro vlastní WordPress šablony založené na WP Frameworku
 
 ---
 
-Copyright © KTStudio.cz 2015-2018
+Copyright © [KT Studio](https://www.ktstudio.cz/) 2015-2016  
+Copyright © [Brilo Team](https://www.brilo.cz/) 2017-2018
