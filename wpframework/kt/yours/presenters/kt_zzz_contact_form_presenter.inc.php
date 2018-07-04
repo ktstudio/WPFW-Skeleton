@@ -41,8 +41,14 @@ class KT_ZZZ_Contact_Form_Presenter extends KT_Contact_Form_Base_Presenter
         $messageField->addAttrClass("form-control");
         $messageField->addAttribute("rows", "5");
         echo "<div class=\"form-group\">";
-        echo "<label for=\"{$messageField->getName()}\" class=\"phone\">{$messageField->getLabel()}</label>";
+        echo "<label for=\"{$messageField->getName()}\" class=\"message\">{$messageField->getLabel()}</label>";
         echo $messageField->getField();
+        echo "</div>";
+
+        $agreementField = $fieldset[KT_Contact_Form_Base_Config::AGREEMENT];
+        $agreementField->addAttrClass("form-control");
+        echo "<div class=\"form-group\">";
+        echo $agreementField->getField();
         echo "</div>";
 
         echo "<div class=\"hidden\">";
