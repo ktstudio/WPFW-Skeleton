@@ -103,21 +103,21 @@ class KT_ZZZ_Posts_Presenter extends KT_Presenter_Base
 
     public function theFirstPost()
     {
-        if ($this->isPosts()) {
+        if ($this->hasPosts()) {
             self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY . "-top", 1, 0, self::getClearfixes());
         }
     }
 
     public function theOthersPosts()
     {
-        if ($this->isPosts()) {
+        if ($this->hasPosts()) {
             self::theItemsLoops($this->getPosts(), KT_WP_POST_KEY, ($this->getMaxCount() - 1), 1, self::getClearfixes());
         }
     }
 
     public function getPostsOutput()
     {
-        if ($this->isPosts()) {
+        if ($this->hasPosts()) {
             ob_start();
             $this->thePosts();
             $output = ob_get_clean();
