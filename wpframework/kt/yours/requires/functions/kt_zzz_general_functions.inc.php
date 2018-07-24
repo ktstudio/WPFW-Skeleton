@@ -33,15 +33,11 @@ add_filter("dashboard_glance_items", "kt_zzz_dashboard_glance_items_filter");
 
 function kt_zzz_dashboard_glance_items_filter(array $elements)
 {
-    // references
-    $productsKey = KT_ZZZ_REFERENCE_KEY;
-    $productsCounts = wp_count_posts($productsKey, "readable");
-    $productsLabel = sprintf(__("%d referencí", "ZZZ_ADMIN_DOMAIN"), $productsCounts->publish);
-    $elements[] = "<a href=\"edit.php?post_type=$productsKey\">$productsLabel</a>";
-    // sliders
-    $listsKey = KT_ZZZ_SLIDER_KEY;
-    $listsCounts = wp_count_posts($listsKey, "readable");
-    $listsLabel = sprintf(__("%d sliderů", "ZZZ_ADMIN_DOMAIN"), $listsCounts->publish);
-    $elements[] = "<a href=\"edit.php?post_type=$listsKey\">$listsLabel</a>";
+    $postTypes = [KT_ZZZ_REFERENCE_KEY, KT_ZZZ_SLIDER_KEY];
+    foreach ($postTypes as $postType) {
+        $counts = wp_count_posts($postType, "readable");
+        $label = sprintf(__("%s: %d", "KSP_DOMAIN"), get_post_type_object($postType)->label, $counts->publish);
+        $elements[] = "<a href=\"edit.php?post_type=$postType\">$label</a>";
+    }
     return $elements;
 }
