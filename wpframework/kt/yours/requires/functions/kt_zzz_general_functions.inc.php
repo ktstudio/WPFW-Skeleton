@@ -27,6 +27,17 @@ function kt_wph_posts_per_page($query)
     }
 }
 
+// --- media: link & gallery ------------------------
+
+add_filter("media_view_settings", "kt_zzz_media_view_settings_filter");
+
+function kt_zzz_media_view_settings_filter($settings)
+{
+    $settings["galleryDefaults"]["link"] = "file";
+    $settings["galleryDefaults"]["columns"] = 4;
+    return $settings;
+}
+
 // --- dashboard: glance ------------------------
 
 add_filter("dashboard_glance_items", "kt_zzz_dashboard_glance_items_filter");
@@ -36,8 +47,12 @@ function kt_zzz_dashboard_glance_items_filter(array $elements)
     $postTypes = [KT_ZZZ_REFERENCE_KEY, KT_ZZZ_SLIDER_KEY];
     foreach ($postTypes as $postType) {
         $counts = wp_count_posts($postType, "readable");
-        $label = sprintf(__("%s: %d", "KSP_DOMAIN"), get_post_type_object($postType)->label, $counts->publish);
+        $label = sprintf(__("%s: %d", "ZZZ_DOMAIN"), get_post_type_object($postType)->label, $counts->publish);
         $elements[] = "<a href=\"edit.php?post_type=$postType\">$label</a>";
     }
     return $elements;
 }
+
+// --- yoast: disable JSON+LD ------------------------
+
+add_filter("wpseo_json_ld_output", "__return_empty_array", 99);
