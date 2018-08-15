@@ -17,8 +17,8 @@ class KT_ZZZ_Competitive_Advantage_Config
      */
     public static function getDetailFieldset(KT_ZZZ_Competitive_Advantage_Model $item = null)
     {
-        $fieldset = KT_Catalog_Base_Config::getCatalogBaseFieldset(self::FORM_PREFIX, self::FORM_PREFIX, __("Konkureční výhoda", "ZZZ_ADMIN_DOMAIN"), $item);
-        $fieldset[KT_ZZZ_Competitive_Advantage_Model::CODE_COLUMN]->setLabel(__("CSS class:", "ZZZ_ADMIN_DOMAIN"));
+        $fieldset = KT_Catalog_Base_Config::getCatalogBaseFieldset(self::FORM_PREFIX, self::FORM_PREFIX, __("Konkureční výhoda", "ZZZ_DOMAIN"), $item);
+        $fieldset[KT_ZZZ_Competitive_Advantage_Model::CODE_COLUMN]->setLabel(__("CSS class:", "ZZZ_DOMAIN"));
         return $fieldset;
     }
 }

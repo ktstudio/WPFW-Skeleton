@@ -31,7 +31,7 @@ KT_Metabox::createCrud(
 // --- content ------------------------
 
 foreach (array(KT_WP_POST_KEY, KT_WP_PAGE_KEY) as $postType) {
-    $pageShortcodesMetabox = KT_MetaBox::createCustom("kt-zzz-$postType-shortcodes-metabox", __("Obsahové zktratky", "ZZZ_ADMIN_DOMAIN"), $postType, "kt_zzz_content_shortcodes_metabox_callback", false);
+    $pageShortcodesMetabox = KT_MetaBox::createCustom("kt-zzz-$postType-shortcodes-metabox", __("Obsahové zktratky", "ZZZ_DOMAIN"), $postType, "kt_zzz_content_shortcodes_metabox_callback", false);
     $pageShortcodesMetabox->setContext(KT_MetaBox::CONTEXT_SIDE);
     $pageShortcodesMetabox->setPriority(KT_MetaBox::PRIORITY_LOW);
     $pageShortcodesMetabox->register();
