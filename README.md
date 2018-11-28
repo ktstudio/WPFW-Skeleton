@@ -36,7 +36,7 @@ Základní kostra pro vlastní WordPress šablony založené na WP Frameworku
 
 ---
 
-**) Testováno na verzi [WP Frameworku 1.11](https://github.com/ktstudio/WP-Framework/releases)...*
+**) Testováno na verzi [WP Frameworku 1.11](https://github.com/ktstudio/WP-Framework/releases) resp. [WP Frameworku 1.12](https://github.com/ktstudio/WP-Framework/releases)...*
 
 ---
 
