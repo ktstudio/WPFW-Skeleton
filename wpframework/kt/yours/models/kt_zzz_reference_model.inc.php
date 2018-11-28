@@ -2,7 +2,7 @@
 
 class KT_ZZZ_Reference_Model extends KT_WP_Post_Base_Model
 {
-    function __construct(WP_Post $post)
+    public function __construct(WP_Post $post)
     {
         parent::__construct($post, KT_ZZZ_Reference_Config::FORM_PREFIX);
     }
@@ -24,7 +24,7 @@ class KT_ZZZ_Reference_Model extends KT_WP_Post_Base_Model
         return $this->getMetaValue(KT_ZZZ_Reference_Config::PARAMS_CLIENT);
     }
 
-    // --- veřejné funkce ------------------------
+    // --- veřejné metody ------------------------
 
     public function isParamInformation()
     {

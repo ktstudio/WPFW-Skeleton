@@ -13,13 +13,10 @@ $config->addPostTypeSupport(KT_WP_POST_TYPE_SUPPORT_EXCERPT_KEY, [KT_WP_PAGE_KEY
 
 $config->removePostTypeSupport(KT_WP_POST_TYPE_SUPPORT_THUMBNAIL_KEY, [KT_WP_PAGE_KEY]);
 
-$config->setPostsArchiveSlug("blog");
-
 $config->setExcerptText("...");
 
 $config->pageRemover()
     ->removeComments()
-    ->removeTools()
     ->removeSubPage("edit.php", "edit-tags.php")
     ->removeSubPage("edit.php", "edit-tags.php?taxonomy=post_tag")
     ->removeSubPage("themes.php", "theme-editor.php");
@@ -42,11 +39,11 @@ $config->setImagesLazyLoading(true)
 $config->assetsConfigurator()->addStyle(KT_MAGNIFIC_POPUP_STYLE)->setEnqueue();
 //$config->assetsConfigurator()->addStyle("kt-zzz-bootstrap-style", KT_ZZZ_CSS_URL . "/bootstrap.min.css")->setEnqueue();
 /*
- * Bylo by dobré používat pouze jeden styl, spojený a minifikovaný do jednoho souboru, 
+ * Bylo by dobré používat pouze jeden styl, spojený a minifikovaný do jednoho souboru,
  * pak předchozí registrace nejsou třeba a stačí pouze následující:
  */
 $config->assetsConfigurator()->addStyle("kt-zzz-style", get_template_directory_uri() . "/style.css")
-    ->setDeps([KT_MAGNIFIC_POPUP_STYLE])//, "kt-zzz-bootstrap-style"))
+    ->setDeps([KT_MAGNIFIC_POPUP_STYLE]) //, "kt-zzz-bootstrap-style"))
     ->setEnqueue();
 
 $config->assetsConfigurator()->addStyle("kt-zzz-font-open-sans", "http://fonts.googleapis.com/css?family=Open+Sans:400,600,300,700,800&amp;subset=latin,latin-ext")->setEnqueue();
@@ -66,12 +63,12 @@ $config->assetsConfigurator()
 //        ->setInFooter(true)
 //        ->setEnqueue();
 /*
- * Bylo by dobré používat pouze jeden skript, spojený a minifikovaný do jednoho souboru, 
+ * Bylo by dobré používat pouze jeden skript, spojený a minifikovaný do jednoho souboru,
  * pak předchozí registrace nejsou třeba a stačí pouze následující:
  */
 $config->assetsConfigurator()
-    ->addScript("kt-zzz-functions-script", KT_ZZZ_JS_URL . "/kt-zzz-functions.min.js")
-    ->setDeps([KT_WP_JQUERY_SCRIPT, KT_JQUERY_UNVEIL_SCRIPT, KT_MAGNIFIC_POPUP_SCRIPT])//, "kt-zzz-bootstrap-script"))
+    ->addScript("kt-zzz-functions-script", KT_ZZZ_JS_URL . "/kt-functions.min.js")
+    ->setDeps([KT_WP_JQUERY_SCRIPT, KT_JQUERY_UNVEIL_SCRIPT, KT_MAGNIFIC_POPUP_SCRIPT]) //, "kt-zzz-bootstrap-script"))
     ->addLocalizationData("myAjax", ["ajaxurl" => admin_url("admin-ajax.php")])
     ->setInFooter(true)
     ->setEnqueue();
@@ -120,7 +117,7 @@ function kt_zzz_enqueue_jquery_in_footer()
     wp_deregister_script("wp-embed");
     wp_deregister_script(KT_WP_JQUERY_SCRIPT);
     /*
-     * V případě, že máte všechny skripty spojené do jednoho včetně (vlastní) jQuery, 
+     * V případě, že máte všechny skripty spojené do jednoho včetně (vlastní) jQuery,
      * tak následující 2 řádky zakomentujte, WP jQuery už pak není třeba:
      */
     wp_register_script(KT_WP_JQUERY_SCRIPT, "/wp-includes/js/jquery/jquery.js", false, "", true);
