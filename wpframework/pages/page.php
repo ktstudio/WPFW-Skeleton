@@ -1,5 +1,5 @@
 <?php
-$pagePresenter = new KT_ZZZ_Page_Presenter($pageModel = new KT_ZZZ_Page_Model($post));
+$postPresenter = new KT_ZZZ_Page_Presenter($postModel = new KT_ZZZ_Page_Model($post));
 get_header();
 ?>   
 
@@ -11,13 +11,13 @@ get_header();
         <div class="col-md-9">
             <main>
                 <header>
-                    <h1><?php echo $pageModel->getTitle(); ?></h1>
+                    <h1><?php echo $postModel->getTitle(); ?></h1>
                 </header>
                 <?php
-                if ($pageModel->hasExcerpt()) {
-                    echo $pageModel->getExcerpt();
+                if ($postModel->hasExcerpt()) {
+                    echo $postModel->getExcerpt();
                 }
-                echo $pageModel->getContent();
+                echo $postModel->getContent();
                 ?>
             </main>
         </div>
