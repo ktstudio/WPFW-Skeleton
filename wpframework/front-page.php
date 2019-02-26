@@ -1,14 +1,5 @@
-<?php get_header(); ?>
+<?php KT_ZZZ::getHeader(); ?>
 
-<div class="container">
-    <?php
-    get_template_part("partials/slider");
-    get_template_part("partials/frontpage");
-    get_template_part("partials/news");
-    get_template_part("partials/references");
-    get_template_part("partials/competitiveadvantages");
-    ?>
-</div>
+<h1>This is front-page.php</h1>
 
-<?php
-get_footer();
+<?php KT_ZZZ::getFooter(); ?>

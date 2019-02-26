@@ -18,15 +18,6 @@ KT_MetaBox::createMultiple(KT_ZZZ_Post_Config::getAllGenericFieldsets(), KT_WP_P
 
 KT_MetaBox::createMultiple(KT_ZZZ_Page_Config::getAllGenericFieldsets(), KT_WP_PAGE_KEY, KT_MetaBox_Data_Type_Enum::POST_META);
 
-// --- reference ------------------------
-
-KT_MetaBox::createMultiple(KT_ZZZ_Reference_Config::getAllGenericFieldsets(), KT_ZZZ_REFERENCE_KEY, KT_MetaBox_Data_Type_Enum::POST_META);
-
-// --- competitive advantage ------------------------
-
-KT_Metabox::createCrud(
-    KT_ZZZ_Competitive_Advantage_Config::getDetailFieldset(), KT_Custom_Metaboxes_Page::getCustomMetaboxPageScreenName(KT_ZZZ_Competitive_Advantage_Model::PREFIX), "KT_ZZZ_Competitive_Advantage_Model", KT_ZZZ_Competitive_Advantage_Model::ID_COLUMN
-);
 
 // --- content ------------------------
 

@@ -57,6 +57,21 @@ class KT_ZZZ
         return self::$postsPageModel = $postsPageModel;
     }
 
+    public static function getHeader()
+    {
+        get_template_part(COMPONENTS_PATH . "header/header");
+    }
+
+    public static function getFooter()
+    {
+        get_template_part(COMPONENTS_PATH . "footer/footer");
+    }
+
+    public static function getHeaderSearchForm()
+    {
+        get_template_part(COMPONENTS_PATH . "header/header-search-form");
+    }
+
     /**
      * @param string $text
      * @param string $class

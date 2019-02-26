@@ -14,18 +14,6 @@ function kt_zzz_load_more_posts_callback()
     die(false);
 }
 
-// --- posts: pre_get_posts ------------------------
-
-add_action("pre_get_posts", "kt_wph_posts_per_page", 1);
-
-function kt_wph_posts_per_page($query)
-{
-    if (!is_admin() && $query->is_main_query()) {
-        if (is_category() || is_post_type_archive(KT_WP_POST_KEY)) {
-            $query->set("posts_per_page", 1); // at least a little "reduction" of performance requirements because of custom WP Query in KT_ZZZ_Posts_Presenter
-        }
-    }
-}
 
 // --- media: link & gallery ------------------------
 
@@ -38,21 +26,31 @@ function kt_zzz_media_view_settings_filter($settings)
     return $settings;
 }
 
-// --- dashboard: glance ------------------------
-
-add_filter("dashboard_glance_items", "kt_zzz_dashboard_glance_items_filter");
-
-function kt_zzz_dashboard_glance_items_filter(array $elements)
-{
-    $postTypes = [KT_ZZZ_REFERENCE_KEY, KT_ZZZ_SLIDER_KEY];
-    foreach ($postTypes as $postType) {
-        $counts = wp_count_posts($postType, "readable");
-        $label = sprintf(__("%s: %d", "ZZZ_DOMAIN"), get_post_type_object($postType)->label, $counts->publish);
-        $elements[] = "<a href=\"edit.php?post_type=$postType\">$label</a>";
-    }
-    return $elements;
-}
 
 // --- yoast: disable JSON+LD ------------------------
 
 add_filter("wpseo_json_ld_output", "__return_empty_array", 99);
+
+// --- Wordpress gallery styles disable
+
+add_filter('use_default_gallery_style', '__return_false');
+
+// --- clear empty <b> strong p a and br from shortcode ------------------------
+
+add_filter('the_content', 'KT_ZZZ_shortcode_empty_paragraph_callback');
+
+function KT_ZZZ_shortcode_empty_paragraph_callback($content)
+{
+
+    $array = array(
+        '<p>[' => '[',
+        ']</p>' => ']',
+        '<strong>[' => '[',
+        ']</strong>' => ']',
+        '<b>[' => '[',
+        ']</b>' => ']',
+        ']<br />' => ']'
+    );
+    return strtr($content, $array);
+
+}
